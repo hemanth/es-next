@@ -110,7 +110,19 @@ Object.getOwnPropertyDescriptor(life, 'answer');
 ```
 
 # Typed Objects
-> TDB
+> Portable, memory-safe, efficient, and structured access to contiguously allocated data.
+
+```js
+var Point = new StructType({
+  x: int32,
+  y: int32
+});
+ 
+var point = new Point({
+  x: 42,
+  y: 420
+});
+```
 
 # Reflect.Realm
 > TDB
