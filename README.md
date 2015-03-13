@@ -94,10 +94,11 @@ obj.name = "hemanth";
 > Returns a property descriptor for an own property.
 
 ```js
-
-let life = { answer: 42 };
-Object.getOwnPropertyDescriptor(life, 'answer');
-//^ { configurable: true, enumerable: true, value: 42, writable: true }
+// Creating a shallow copy.
+var shallowCopy = Object.create(
+  Object.getPrototypeOf(originalObject),
+  Object.getOwnPropertyDescriptors(originalObject)
+);
 ```
 
 # Array.prototype.includes
