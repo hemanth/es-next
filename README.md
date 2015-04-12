@@ -171,5 +171,19 @@ function cantEnum(target, name, descriptor) {
 }
 ```
 
+# Class properties
+> Properties of class.
+
+> Stage: Strawman.
+
+```js
+class Cat {
+  name = 'Garfield';
+  static says = 'meow';
+}
+new Cat().name; // Garfield
+Cat.says; // meow
+```
+
 # Reflect.Realm
 > TDB
