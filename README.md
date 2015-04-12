@@ -154,5 +154,22 @@ var meow = function (cat1, cat2,) {}
 Math.max(4,2,0,);
 ```
 
+# Class decorators.
+> Annotate and modify classes and properties at design time.
+
+> Stage: Proposal.
+
+```js
+class Person {
+  @cantEnum
+  get kidCount() { return this.children.length; }
+}
+
+function cantEnum(target, name, descriptor) {
+  descriptor.enumerable = false;
+  return descriptor;
+}
+```
+
 # Reflect.Realm
 > TDB
