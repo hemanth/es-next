@@ -143,5 +143,16 @@ var point = new Point({
 });
 ```
 
+# Trailing commas in function syntax.
+> Trailing commas in parameter and argument lists.
+
+> Stage: Proposal
+
+```js
+var meow = function (cat1, cat2,) {}
+
+Math.max(4,2,0,);
+```
+
 # Reflect.Realm
 > TDB
