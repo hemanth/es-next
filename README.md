@@ -3,6 +3,8 @@ ECMAScript 7 is the next evolution of the ECMA-262 standard, this is at a very e
 # Exponentiation Operator
 > Performs exponential calculation on operands. Same algorithm as `Math.pow(x, y)`
 
+> Stage: Draft.
+
 ```js
 
 let cubed = x => x ** 3;
@@ -12,6 +14,8 @@ cubed(2) // 8;
 
 # Array comprehensions
 > Declarative form for creating computed arrays with a literal syntax that reads naturally.
+
+> Stage: Strawman.
 
 ```js
 
@@ -30,6 +34,8 @@ let numbers = [ 1, 4, 9 ];
 # Generator comprehensions
 > Create a generator function based on an existing iterable object.
 
+> Stage: Strawman.
+
 ```js
 (for (i of [ 2, 4, 6 ]) i*i );
 // generator function which yields 4, 16, and 36
@@ -40,17 +46,19 @@ let numbers = [ 1, 4, 9 ];
 # Async functions
 > Deferred Functions
 
+> Stage: Proposal.
+
 ```js
 function wait(t){
   return new Promise((r) => setTimeout(r, t));
 }
- 
+
 async function asyncMania(){
   console.log("1");
   await wait(1000);
   console.log("2");
 }
- 
+
 asyncMania()
 .then(() => alert("3"));
 
@@ -59,6 +67,8 @@ asyncMania()
 
 # Async generators
 > Deferred generators.
+
+> Stage: Proposal.
 
 ```js
 // provider
@@ -76,8 +86,10 @@ async function printData() {
 }
 ```
 
-# Object Observe 
+# Object Observe
 > Asynchronously observing the changes to an object.
+
+> Stage: Draft.
 
 ```js
 
@@ -93,6 +105,8 @@ obj.name = "hemanth";
 # Object.getOwnPropertyDescriptors
 > Returns a property descriptor for an own property.
 
+> Stage: Strawman.
+
 ```js
 // Creating a shallow copy.
 var shallowCopy = Object.create(
@@ -104,6 +118,8 @@ var shallowCopy = Object.create(
 # Array.prototype.includes
 > Determines whether an array includes a certain element or not.
 
+> Stage: Draft.
+
 ```js
 [1, 2, 3].includes(3, 0, 7); // true
 [1, 2, NaN].includes(NaN); // true
@@ -113,12 +129,14 @@ var shallowCopy = Object.create(
 # Typed Objects
 > Portable, memory-safe, efficient, and structured access to contiguously allocated data.
 
+> Stage: Proposal.
+
 ```js
 var Point = new StructType({
   x: int32,
   y: int32
 });
- 
+
 var point = new Point({
   x: 42,
   y: 420
@@ -127,15 +145,3 @@ var point = new Point({
 
 # Reflect.Realm
 > TDB
-
-
-
-
-
-
-
-
-
-
-
-
