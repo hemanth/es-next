@@ -185,5 +185,28 @@ new Cat().name; // Garfield
 Cat.says; // meow
 ```
 
+# Map.prototype.toJSON
+> `toJSON` for Maps.
+
+> Stage: Strawman.
+
+```js
+var myMap = new Map();
+myMap.set(NaN, "not a number");
+ 
+console.log(myMap.toJSON()); // {"NaN":"not a number"} 
+```
+
+# Set.prototype.toJSON
+> `toJSON` for Sets.
+
+> Stage: Strawman.
+
+```js
+var mySet = new Set();
+mySet.add(NaN);
+mySet.add(1);
+console.log(mySet.toJSON()) // {"1":1,"NaN":null} 
+```
 # Reflect.Realm
 > TDB
