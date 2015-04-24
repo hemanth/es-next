@@ -208,5 +208,14 @@ mySet.add(NaN);
 mySet.add(1);
 console.log(mySet.toJSON()) // {"1":1,"NaN":null} 
 ```
+# String.prototype.at
+> String containing the code point at the given position
+
+> Stage: Strawman.
+
+```js
+'abc\uD834\uDF06def'.at(1) // 'b'
+'abc\uD834\uDF06def'.at(3) // '\uD834\uDF06'
+```
 # Reflect.Realm
 > TDB
