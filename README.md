@@ -1,3 +1,7 @@
+ECMAScript 7 is the next evolution of the ECMA-262 standard, this is at a very early stage, you may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) as well.
+
+__List of ES7 features:__
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -22,7 +26,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-ECMAScript 7 is the next evolution of the ECMA-262 standard, this is at a very early stage, you may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) as well.
 
 # Exponentiation Operator
 > Performs exponential calculation on operands. Same algorithm as `Math.pow(x, y)`
