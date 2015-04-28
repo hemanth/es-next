@@ -217,5 +217,16 @@ console.log(mySet.toJSON()) // {"1":1,"NaN":null}
 'abc\uD834\uDF06def'.at(1) // 'b'
 'abc\uD834\uDF06def'.at(3) // '\uD834\uDF06'
 ```
+
+# Object rest properties
+> Rest properties for object destructuring assignment.
+
+```js
+let { fname, lname, ...rest } = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
+fname; //"Hemanth"
+lname; //"HM"
+rest; // {location: "Earth", type: "Human"}
+```
+
 # Reflect.Realm
 > TDB
