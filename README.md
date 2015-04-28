@@ -221,6 +221,8 @@ console.log(mySet.toJSON()) // {"1":1,"NaN":null}
 # Object rest properties
 > Rest properties for object destructuring assignment.
 
+> Stage: Strawman.
+
 ```js
 let { fname, lname, ...rest } = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
 fname; //"Hemanth"
