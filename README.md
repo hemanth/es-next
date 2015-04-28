@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Exponentiation Operator](#exponentiation-operator)
+- [Array comprehensions](#array-comprehensions)
+- [Generator comprehensions](#generator-comprehensions)
+- [Async functions](#async-functions)
+- [Async generators](#async-generators)
+- [Object Observe](#object-observe)
+- [Object.getOwnPropertyDescriptors](#objectgetownpropertydescriptors)
+- [Array.prototype.includes](#arrayprototypeincludes)
+- [Typed Objects](#typed-objects)
+- [Trailing commas in function syntax.](#trailing-commas-in-function-syntax)
+- [Class decorators.](#class-decorators)
+- [Class properties](#class-properties)
+- [Map.prototype.toJSON](#mapprototypetojson)
+- [Set.prototype.toJSON](#setprototypetojson)
+- [String.prototype.at](#stringprototypeat)
+- [Object rest properties](#object-rest-properties)
+- [Object spread properties](#object-spread-properties)
+- [Reflect.Realm](#reflectrealm)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ECMAScript 7 is the next evolution of the ECMA-262 standard, this is at a very early stage, you may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) as well.
 
 # Exponentiation Operator
