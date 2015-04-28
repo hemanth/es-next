@@ -230,5 +230,17 @@ lname; //"HM"
 rest; // {location: "Earth", type: "Human"}
 ```
 
+# Object spread properties
+> Spread properties for object destructuring assignment.
+
+> Stage: Strawman.
+
+```js
+let info = {fname, lname, ...rest};
+
+info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
+
+```
+
 # Reflect.Realm
 > TDB
