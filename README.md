@@ -4,6 +4,7 @@ __List of ES7 features:__
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Exponentiation Operator](#exponentiation-operator)
 - [Array comprehensions](#array-comprehensions)
@@ -22,6 +23,8 @@ __List of ES7 features:__
 - [String.prototype.at](#stringprototypeat)
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
+- [String.prototype.lpad](#stringprototypelpad)
+- [String.prototype.rpad](#stringprototyperpad)
 - [Reflect.Realm](#reflectrealm)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
