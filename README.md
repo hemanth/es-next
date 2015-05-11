@@ -220,8 +220,8 @@ Cat.says; // meow
 ```js
 var myMap = new Map();
 myMap.set(NaN, "not a number");
- 
-console.log(myMap.toJSON()); // {"NaN":"not a number"} 
+
+console.log(myMap.toJSON()); // {"NaN":"not a number"}
 ```
 
 # Set.prototype.toJSON
@@ -233,7 +233,7 @@ console.log(myMap.toJSON()); // {"NaN":"not a number"}
 var mySet = new Set();
 mySet.add(NaN);
 mySet.add(1);
-console.log(mySet.toJSON()) // {"1":1,"NaN":null} 
+console.log(mySet.toJSON()) // {"1":1,"NaN":null}
 ```
 # String.prototype.at
 > String containing the code point at the given position
@@ -267,6 +267,28 @@ let info = {fname, lname, ...rest};
 
 info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 
+```
+
+# String.prototype.lpad
+> left justify and pad strings.
+
+> Stage: Strawaman.
+
+```js
+"hello".lpad(4)            #=> "hello"
+"hello".lpad(20)           #=> "hello               "
+"hello".lpad(20, '1234')   #=> "hello123412341234123"
+```
+
+# String.prototype.rpad
+> right justify and pad strings.
+
+> Stage: Strawaman.
+
+```js
+"hello".rpad(4)            #=> "hello"
+"hello".rpad(20)           #=> "               hello"
+"hello".rpad(20, '1234')   #=> "123412341234123hello"
 ```
 
 # Reflect.Realm
