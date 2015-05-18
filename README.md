@@ -23,6 +23,8 @@ __List of ES7 features:__
 - [String.prototype.at](#stringprototypeat)
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
+- [String.prototype.lpad](#stringprototypelpad)
+- [String.prototype.rpad](#stringprototyperpad)
 - [Bind Operator](#bind-operator)
 - [Reflect.Realm](#reflectrealm)
 
@@ -271,6 +273,29 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 
 ```
 
+# String.prototype.lpad
+> left justify and pad strings.
+
+> Stage: Strawaman.
+
+```js
+"hello".lpad(4)            #=> "hello"
+"hello".lpad(20)           #=> "hello               "
+"hello".lpad(20, '1234')   #=> "hello123412341234123"
+```
+
+# String.prototype.rpad
+> right justify and pad strings.
+
+> Stage: Strawaman.
+
+```js
+"hello".rpad(4)            #=> "hello"
+"hello".rpad(20)           #=> "               hello"
+"hello".rpad(20, '1234')   #=> "123412341234123hello"
+```
+
+
 # Bind Operator
 > `::` Function binding and method extraction
 
@@ -286,7 +311,6 @@ getPlayers()
   ::takeWhile(x => x.strength > 100)
   ::forEach(x => console.log(x));
 ```
-
 
 # Reflect.Realm
 > TDB
