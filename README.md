@@ -4,6 +4,7 @@ __List of ES7 features:__
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Exponentiation Operator](#exponentiation-operator)
 - [Array comprehensions](#array-comprehensions)
@@ -22,6 +23,7 @@ __List of ES7 features:__
 - [String.prototype.at](#stringprototypeat)
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
+- [Bind Operator](#bind-operator)
 - [Reflect.Realm](#reflectrealm)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -220,8 +222,8 @@ Cat.says; // meow
 ```js
 var myMap = new Map();
 myMap.set(NaN, "not a number");
- 
-console.log(myMap.toJSON()); // {"NaN":"not a number"} 
+
+console.log(myMap.toJSON()); // {"NaN":"not a number"}
 ```
 
 # Set.prototype.toJSON
@@ -233,7 +235,7 @@ console.log(myMap.toJSON()); // {"NaN":"not a number"}
 var mySet = new Set();
 mySet.add(NaN);
 mySet.add(1);
-console.log(mySet.toJSON()) // {"1":1,"NaN":null} 
+console.log(mySet.toJSON()) // {"1":1,"NaN":null}
 ```
 # String.prototype.at
 > String containing the code point at the given position
@@ -268,6 +270,23 @@ let info = {fname, lname, ...rest};
 info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 
 ```
+
+# Bind Operator
+> `::` Function binding and method extraction
+
+> Stage: Strawan.
+
+```js
+let log = (level, msg) => ::console[level](msg);
+
+import { map, takeWhile, forEach } from "iterlib";
+
+getPlayers()
+  ::map(x => x.character())
+  ::takeWhile(x => x.strength > 100)
+  ::forEach(x => console.log(x));
+```
+
 
 # Reflect.Realm
 > TDB
