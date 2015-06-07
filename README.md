@@ -146,6 +146,33 @@ var shallowCopy = Object.create(
 );
 ```
 
+# Object.values
+> Get all the values of the object as an array.
+
+> Stage: Shall reach Strawman
+
+```js
+var person = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
+
+Object.values(person);
+
+//^ ["Hemanth","HM","Earth","Human"]
+```
+
+# Object.entries
+> Returns a Array of arrays of key,value pairs.
+
+> Stage: Shall reach Strawman
+
+```js
+var person = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
+
+Object.entires(person);
+
+//^ [["fname","Hemanth"],["lname","HM"],["location","Earth"],["type","Human"]]
+
+```
+
 # Array.prototype.includes
 > Determines whether an array includes a certain element or not.
 
@@ -276,7 +303,7 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 # String.prototype.lpad
 > left justify and pad strings.
 
-> Stage: Strawaman.
+> Stage: Strawman.
 
 ```js
 "hello".lpad(4)            #=> "hello"
@@ -287,7 +314,7 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 # String.prototype.rpad
 > right justify and pad strings.
 
-> Stage: Strawaman.
+> Stage: Strawman.
 
 ```js
 "hello".rpad(4)            #=> "hello"
@@ -299,7 +326,7 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 # Bind Operator
 > `::` Function binding and method extraction
 
-> Stage: Strawan.
+> Stage: Shall reach Strawman.
 
 ```js
 let log = (level, msg) => ::console[level](msg);
