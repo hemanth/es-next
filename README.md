@@ -13,6 +13,8 @@ __List of ES7 features:__
 - [Async generators](#async-generators)
 - [Object Observe](#object-observe)
 - [Object.getOwnPropertyDescriptors](#objectgetownpropertydescriptors)
+- [Object.values](#objectvalues)
+- [Object.entries](#objectentries)
 - [Array.prototype.includes](#arrayprototypeincludes)
 - [Typed Objects](#typed-objects)
 - [Trailing commas in function syntax.](#trailing-commas-in-function-syntax)
