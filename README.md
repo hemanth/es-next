@@ -27,6 +27,7 @@ __List of ES7 features:__
 - [Object spread properties](#object-spread-properties)
 - [String.prototype.lpad](#stringprototypelpad)
 - [String.prototype.rpad](#stringprototyperpad)
+- [Regexp.escape](#regexpescape)
 - [Bind Operator](#bind-operator)
 - [Reflect.Realm](#reflectrealm)
 
