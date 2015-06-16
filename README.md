@@ -324,6 +324,16 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 "hello".rpad(20, '1234')   #=> "123412341234123hello"
 ```
 
+# Regexp.escape
+> Escapes any characters that would have special meaning in a regular expression.
+
+> Stage: Strawaman
+
+```js
+RegExp.escape("(*.*)"); // "\(\*\.\*\)"
+RegExp.escape("｡^･ｪ･^｡") // "｡\^･ｪ･\^｡"
+RegExp.escape("😊 *_* +_+ ... 👍"); // "😊 \*_\* \+_\+ \.\.\. 👍"
+```
 
 # Bind Operator
 > `::` Function binding and method extraction
