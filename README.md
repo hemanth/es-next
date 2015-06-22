@@ -4,11 +4,8 @@ __List of ES7 features:__
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Exponentiation Operator](#exponentiation-operator)
-- [Array comprehensions](#array-comprehensions)
-- [Generator comprehensions](#generator-comprehensions)
 - [Async functions](#async-functions)
 - [Async generators](#async-generators)
 - [Object Observe](#object-observe)
