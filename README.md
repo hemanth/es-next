@@ -46,37 +46,6 @@ let cubed = x => x ** 3;
 cubed(2) // 8;
 ```
 
-# Array comprehensions
-> Declarative form for creating computed arrays with a literal syntax that reads naturally.
-
-> Stage: Strawman.
-
-```js
-
-let numbers = [ 1, 4, 9 ];
-
-[for (num of numbers) Math.sqrt(num)];
-// => [ 1, 2, 3 ]
-
-[for (x of [ 1, 2, 3]) for (y of [ 3, 2, 1 ]) x*y];
-// => [ 3, 2, 1, 6, 4, 2, 9, 6, 3 ]
-
-[for (x of [ 1, 2, 3, 4, 5, 6 ]) if (x%2 === 0) x];
-// => [ 2, 4, 6 ]
-```
-
-# Generator comprehensions
-> Create a generator function based on an existing iterable object.
-
-> Stage: Strawman.
-
-```js
-(for (i of [ 2, 4, 6 ]) i*i );
-// generator function which yields 4, 16, and 36
-```
-
-
-
 # Async functions
 > Deferred Functions
 
