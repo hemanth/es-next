@@ -136,7 +136,7 @@ Object.values(person);
 ```js
 var person = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
 
-Object.entires(person);
+Object.entries(person);
 
 //^ [["fname","Hemanth"],["lname","HM"],["location","Earth"],["type","Human"]]
 
