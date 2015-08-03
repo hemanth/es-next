@@ -5,6 +5,7 @@ __List of ES7 features:__
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Exponentiation Operator](#exponentiation-operator)
 - [Async functions](#async-functions)
 - [Async generators](#async-generators)
@@ -23,7 +24,9 @@ __List of ES7 features:__
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
 - [String.prototype.lpad](#stringprototypelpad)
-- [String.prototype.rpad](#stringprototyperpad)
+- [String.prototype.padRight](#stringprototypepadright)
+- [String.prototype.trimLeft](#stringprototypetrimleft)
+- [String.prototype.trimRight](#stringprototypetrimright)
 - [Regexp.escape](#regexpescape)
 - [Bind Operator](#bind-operator)
 - [Reflect.Realm](#reflectrealm)
@@ -280,15 +283,33 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 "hello".lpad(20, '1234')   #=> "hello123412341234123"
 ```
 
-# String.prototype.rpad
+# String.prototype.padRight
 > right justify and pad strings.
 
 > Stage: Strawman.
 
 ```js
-"hello".rpad(4)            #=> "hello"
-"hello".rpad(20)           #=> "               hello"
-"hello".rpad(20, '1234')   #=> "123412341234123hello"
+"hello".padRight(4)            #=> "hello"
+"hello".padRight(20)           #=> "               hello"
+"hello".padRight(20, '1234')   #=> "123412341234123hello"
+```
+
+# String.prototype.trimLeft
+> left trims the string.
+
+> Stage: Candidate.
+
+```js
+' \t \n LeftTrim   \t\n'.trimLeft(); // 'LeftTrim   \t\n';
+```
+
+# String.prototype.trimRight
+> right trims the string.
+
+> Stage: Candidate.
+
+```js
+' \t \n RightTrim   \t\n'.trimRight(); // ' \t \n RightTrim';
 ```
 
 # Regexp.escape
