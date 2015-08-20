@@ -63,7 +63,7 @@ async function asyncMania(){
 }
 
 asyncMania()
-.then(() => alert("3"));
+.then(() => console.log("3"));
 
 // logs: 1 2 3
 ```
