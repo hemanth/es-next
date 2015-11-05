@@ -9,7 +9,6 @@ __List of ES7 features:__
 - [Exponentiation Operator](#exponentiation-operator)
 - [Async functions](#async-functions)
 - [Async generators](#async-generators)
-- [Object Observe](#object-observe)
 - [Object.getOwnPropertyDescriptors](#objectgetownpropertydescriptors)
 - [Object.values](#objectvalues)
 - [Object.entries](#objectentries)
@@ -87,22 +86,6 @@ async function printData() {
     console.log(x);
   }
 }
-```
-
-# Object Observe
-> Asynchronously observing the changes to an object.
-
-> Stage: Draft.
-
-```js
-
-var obj = {};
-
-Object.observe( obj,function(changes) {console.log(changes);} );
-
-obj.name = "hemanth";
-
-// Would log -> [ { type: 'new', object: { name: 'hemanth' }, name: 'name' } ]
 ```
 
 # Object.getOwnPropertyDescriptors
