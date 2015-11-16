@@ -261,9 +261,9 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 > Stage: Strawman.
 
 ```js
-"hello".lpad(4)            #=> "hello"
-"hello".lpad(20)           #=> "hello               "
-"hello".lpad(20, '1234')   #=> "hello123412341234123"
+"hello".padLeft(4)            #=> "hello"
+"hello".padLeft(20)           #=> "hello               "
+"hello".padLeft(20, '1234')   #=> "hello123412341234123"
 ```
 
 # String.prototype.padRight
