@@ -22,7 +22,7 @@ __List of ES7 features:__
 - [String.prototype.at](#stringprototypeat)
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
-- [String.prototype.lpad](#stringprototypelpad)
+- [String.prototype.padLeft](#stringprototypepadleft)
 - [String.prototype.padRight](#stringprototypepadright)
 - [String.prototype.trimLeft](#stringprototypetrimleft)
 - [String.prototype.trimRight](#stringprototypetrimright)
@@ -255,15 +255,15 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 
 ```
 
-# String.prototype.lpad
+# String.prototype.padLeft
 > left justify and pad strings.
 
 > Stage: Strawman.
 
 ```js
-"hello".lpad(4)            #=> "hello"
-"hello".lpad(20)           #=> "hello               "
-"hello".lpad(20, '1234')   #=> "hello123412341234123"
+"hello".padLeft(4)            #=> "hello"
+"hello".padLeft(20)           #=> "hello               "
+"hello".padLeft(20, '1234')   #=> "hello123412341234123"
 ```
 
 # String.prototype.padRight
