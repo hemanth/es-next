@@ -298,7 +298,7 @@ info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
 # Regexp.escape
 > Escapes any characters that would have special meaning in a regular expression.
 
-> Stage: Strawaman
+> Stage: Strawman
 
 ```js
 RegExp.escape("(*.*)"); // "\(\*\.\*\)"
