@@ -1,6 +1,6 @@
-"ES proposed features", this is at a very early stage, you may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) and [jsfeatures.in](http://jsfeatures.in) as well.
+You may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) and [jsfeatures.in](http://jsfeatures.in) as well.
 
-__List of ES7 features:__
+__ES proposed features:__
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
