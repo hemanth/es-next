@@ -17,8 +17,6 @@ __ES proposed features:__
 - [Trailing commas in function syntax.](#trailing-commas-in-function-syntax)
 - [Class decorators.](#class-decorators)
 - [Class properties](#class-properties)
-- [Map.prototype.toJSON](#mapprototypetojson)
-- [Set.prototype.toJSON](#setprototypetojson)
 - [String.prototype.at](#stringprototypeat)
 - [Object rest properties](#object-rest-properties)
 - [Object spread properties](#object-spread-properties)
@@ -197,21 +195,6 @@ class Cat {
 new Cat().name; // Garfield
 Cat.says; // meow
 ```
-
-# Map.prototype.toJSON
-> `toJSON` for Maps.
-
-> Stage: Strawman.
-
-```js
-var myMap = new Map();
-myMap.set(NaN, "not a number");
-
-console.log(myMap.toJSON()); // {"NaN":"not a number"}
-```
-
-# Set.prototype.toJSON
-> `toJSON` for Sets.
 
 > Stage: Strawman.
 
