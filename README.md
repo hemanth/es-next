@@ -12,7 +12,6 @@ __ES proposed features:__
 - [Object.getOwnPropertyDescriptors](#objectgetownpropertydescriptors)
 - [Object.values](#objectvalues)
 - [Object.entries](#objectentries)
-- [Array.prototype.includes](#arrayprototypeincludes)
 - [Typed Objects](#typed-objects)
 - [Trailing commas in function syntax.](#trailing-commas-in-function-syntax)
 - [Class decorators.](#class-decorators)
@@ -124,17 +123,6 @@ Object.entries(person);
 
 //^ [["fname","Hemanth"],["lname","HM"],["location","Earth"],["type","Human"]]
 
-```
-
-# Array.prototype.includes
-> Determines whether an array includes a certain element or not.
-
-> Stage: Draft.
-
-```js
-[1, 2, 3].includes(3, 0, 7); // true
-[1, 2, NaN].includes(NaN); // true
-[0,+1,-1].includes(42); // false
 ```
 
 # Typed Objects
