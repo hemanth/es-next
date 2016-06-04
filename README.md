@@ -1,4 +1,4 @@
-You may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) and [jsfeatures.in](http://jsfeatures.in) as well.
+This consist of list of post `ES6/ES2015` including `stage-0` and `stage-4` features.
 
 __ES proposed features:__
 
@@ -295,3 +295,5 @@ getPlayers()
 
 # Reflect.Realm
 > TDB
+
+You may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) and [jsfeatures.in](http://jsfeatures.in) as well.
