@@ -43,7 +43,7 @@ const class Point {
 }
 ```
 
-# Relationshiops
+# Relationships
 
 ```js
 x @ r // The object x is in the r relationship with what value?
