@@ -1,299 +1,206 @@
-This consist of list of post `ES6/ES2015` including `stage-0` and `stage-4` features.
-
-__ES proposed features:__
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Exponentiation Operator](#exponentiation-operator)
-- [Async functions](#async-functions)
-- [Async generators](#async-generators)
-- [Object.getOwnPropertyDescriptors](#objectgetownpropertydescriptors)
-- [Object.values](#objectvalues)
-- [Object.entries](#objectentries)
-- [Typed Objects](#typed-objects)
-- [Trailing commas in function syntax.](#trailing-commas-in-function-syntax)
-- [Class decorators.](#class-decorators)
-- [Class properties](#class-properties)
+- [Relationshiops](#relationshiops)
 - [String.prototype.at](#stringprototypeat)
-- [Object rest properties](#object-rest-properties)
-- [Object spread properties](#object-spread-properties)
-- [String.prototype.padLeft](#stringprototypepadleft)
-- [String.prototype.padRight](#stringprototypepadright)
-- [String.prototype.trimLeft](#stringprototypetrimleft)
-- [String.prototype.trimRight](#stringprototypetrimright)
-- [Regexp.escape](#regexpescape)
-- [Bind Operator](#bind-operator)
-- [Reflect.Realm](#reflectrealm)
+- [Reflect.isCallable](#reflectiscallable)
+- [Reflect.isConstructor](#reflectisconstructor)
+- [Additional metaproperties](#additional-metaproperties)
+- [Function Bind Syntax](#function-bind-syntax)
+- [Do Expressions](#do-expressions)
+- [64-Bit Integer Operations](#64-bit-integer-operations)
+- [Method Parameter Decorators](#method-parameter-decorators)
+- [Function Expression Decorators](#function-expression-decorators)
+- [Zones](#zones)
+- [Explicit syntactic opt-in for Tail Calls](#explicit-syntactic-opt-in-for-tail-calls)
+- [Object enumerables](#object-enumerables)
+- [Unicode property escapes in RE](#unicode-property-escapes-in-re)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+> `stage-0` and `stage-4` features.
 
-# Exponentiation Operator
-> Performs exponential calculation on operands. Same algorithm as `Math.pow(x, y)`
 
-> Stage: Draft.
+__STAGE 0:__
 
-```js
 
-let cubed = x => x ** 3;
-
-cubed(2) // 8;
-```
-
-# Async functions
-> Deferred Functions
-
-> Stage: Proposal.
+#Defensible Classes
 
 ```js
-function wait(t){
-  return new Promise((r) => setTimeout(r, t));
-}
+// const class
 
-async function asyncMania(){
-  console.log("1");
-  await wait(1000);
-  console.log("2");
-}
-
-asyncMania()
-.then(() => console.log("3"));
-
-// logs: 1 2 3
-```
-
-# Async generators
-> Deferred generators.
-
-> Stage: Proposal.
-
-```js
-// provider
-async function* nums() {
-  yield 1;
-  yield 2;
-  yield 3;
-}
-
-// consumer
-async function printData() {
-  for(var x on nums()) {
-    console.log(x);
+const class Point { 
+  constructor(x, y) {
+    public getX() { return x; }
+    public getY() { return y; }
+  }
+  toString() { 
+    return `<${this.getX()}, ${this.getY()}>`;
   }
 }
 ```
 
-# Object.getOwnPropertyDescriptors
-> Returns a property descriptor for an own property.
-
-> Stage: Strawman.
+# Relationshiops
 
 ```js
-// Creating a shallow copy.
-var shallowCopy = Object.create(
-  Object.getPrototypeOf(originalObject),
-  Object.getOwnPropertyDescriptors(originalObject)
-);
+x @ r // The object x is in the r relationship with what value?
+x @ r = y; // Store that x is in the r relationship with value y.
 ```
 
-# Object.values
-> Get all the values of the object as an array.
-
-> Stage: Shall reach Strawman
-
-```js
-var person = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
-
-Object.values(person);
-
-//^ ["Hemanth","HM","Earth","Human"]
-```
-
-# Object.entries
-> Returns a Array of arrays of key,value pairs.
-
-> Stage: Shall reach Strawman
-
-```js
-var person = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
-
-Object.entries(person);
-
-//^ [["fname","Hemanth"],["lname","HM"],["location","Earth"],["type","Human"]]
-
-```
-
-# Typed Objects
-> Portable, memory-safe, efficient, and structured access to contiguously allocated data.
-
-> Stage: Proposal.
-
-```js
-var Point = new StructType({
-  x: int32,
-  y: int32
-});
-
-var point = new Point({
-  x: 42,
-  y: 420
-});
-```
-
-# Trailing commas in function syntax.
-> Trailing commas in parameter and argument lists.
-
-> Stage: Proposal
-
-```js
-var meow = function (cat1, cat2,) {}
-
-Math.max(4,2,0,);
-```
-
-# Class decorators.
-> Annotate and modify classes and properties at design time.
-
-> Stage: Proposal.
-
-```js
-class Person {
-  @cantEnum
-  get kidCount() { return this.children.length; }
-}
-
-function cantEnum(target, name, descriptor) {
-  descriptor.enumerable = false;
-  return descriptor;
-}
-```
-
-# Class properties
-> Properties of class.
-
-> Stage: Strawman.
-
-```js
-class Cat {
-  name = 'Garfield';
-  static says = 'meow';
-}
-new Cat().name; // Garfield
-Cat.says; // meow
-```
-
-> Stage: Strawman.
-
-```js
-var mySet = new Set();
-mySet.add(NaN);
-mySet.add(1);
-console.log(mySet.toJSON()) // {"1":1,"NaN":null}
-```
 # String.prototype.at
-> String containing the code point at the given position
-
-> Stage: Strawman.
 
 ```js
-'abc\uD834\uDF06def'.at(1) // 'b'
-'abc\uD834\uDF06def'.at(3) // '\uD834\uDF06'
+'abc\uD834\uDF06def'.at(3), '\uD834\uDF06'
 ```
 
-# Object rest properties
-> Rest properties for object destructuring assignment.
-
-> Stage: Strawman.
+# Reflect.isCallable
 
 ```js
-let { fname, lname, ...rest } = { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" };
-fname; //"Hemanth"
-lname; //"HM"
-rest; // {location: "Earth", type: "Human"}
+Reflect.isCallable(argument);
 ```
 
-# Object spread properties
-> Spread properties for object destructuring assignment.
-
-> Stage: Strawman.
+# Reflect.isConstructor
 
 ```js
-let info = {fname, lname, ...rest};
-
-info; // { fname: "Hemanth", lname: "HM", location: "Earth", type: "Human" }
-
+Reflect.isConstructor(argument)
 ```
 
-# String.prototype.padLeft
-> left justify and pad strings.
-
-> Stage: Strawman.
+# Additional metaproperties
 
 ```js
-"hello".padLeft(4)            #=> "hello"
-"hello".padLeft(20)           #=> "hello               "
-"hello".padLeft(20, '1234')   #=> "hello123412341234123"
+function.callee; // function object that is currently being evaluated by the running execution context.
 ```
-
-# String.prototype.padRight
-> right justify and pad strings.
-
-> Stage: Strawman.
 
 ```js
-"hello".padRight(4)            #=> "hello"
-"hello".padRight(20)           #=> "               hello"
-"hello".padRight(20, '1234')   #=> "123412341234123hello"
+function.count; // number of arguments pass to the function. 
 ```
-
-# String.prototype.trimLeft
-> left trims the string.
-
-> Stage: Candidate.
 
 ```js
-' \t \n LeftTrim   \t\n'.trimLeft(); // 'LeftTrim   \t\n';
+function.arguments; // array containing the actual arguments passed to the function.
 ```
 
-# String.prototype.trimRight
-> right trims the string.
-
-> Stage: Candidate.
+# Function Bind Syntax
 
 ```js
-' \t \n RightTrim   \t\n'.trimRight(); // ' \t \n RightTrim';
+// :: which performs this binding and method extraction.
+
+Promise.resolve(123).then(::console.log);
+
 ```
 
-# Regexp.escape
-> Escapes any characters that would have special meaning in a regular expression.
-
-> Stage: Strawman
+# Do Expressions
 
 ```js
-RegExp.escape("(*.*)"); // "\(\*\.\*\)"
-RegExp.escape("｡^･ｪ･^｡") // "｡\^･ｪ･\^｡"
-RegExp.escape("😊 *_* +_+ ... 👍"); // "😊 \*_\* \+_\+ \.\.\. 👍"
+// do all the flexible things you can do with statements while still producing a useful result and plugging that back into an expression context.
+
+x = do { let t = f(); t * t + 1 };
+
 ```
 
-# Bind Operator
-> `::` Function binding and method extraction
-
-> Stage: Shall reach Strawman.
+# 64-Bit Integer Operations
 
 ```js
-let log = (level, msg) => ::console[level](msg);
+// return the high 32 bit part of the 64 bit addition of (hi0, lo0) and (hi1, lo1)
+Math.iaddh(lo0, hi0, lo1, hi1);
 
-import { map, takeWhile, forEach } from "iterlib";
+// return the high 32 bit part of the 64 bit subtraction of (hi0, lo0) and (hi1, lo1)
+Math.isubh(lo0, hi0, lo1, hi1);
 
-getPlayers()
-  ::map(x => x.character())
-  ::takeWhile(x => x.strength > 100)
-  ::forEach(x => console.log(x));
+// return the high 32 bit part of the signed 64 bit product of the 32 bit numbers a and b
+Math.imulh(a, b);
+
+// return the high 32 bit part of the unsigned 64 bit product of the 32 bit numbers a and b
+Math.umulh(a, b);
+
 ```
 
-# Reflect.Realm
-> TDB
+# Method Parameter Decorators
 
-You may want to checkout [paws-on-es6](https://github.com/hemanth/paws-on-es6) and [jsfeatures.in](http://jsfeatures.in) as well.
+//decorators that operate on method and constructor parameters.
+
+```js
+class MyComponent {
+  refresh(@lastRefreshTime timeStamp) { … }
+}
+
+export function lastRefreshTime(...) {
+  // at minimum, the arguments of this function should contain:
+  // - reference to owner of the parameter (the method)
+  // - parameter index
+  // - parameter name
+  // - is parameter a rest parameter?
+
+  // store parameter metadata using the same storage mechanism
+  // as the one used for methods
+}
+```
+
+# Function Expression Decorators
+
+```js
+scheduleForFrequentReexecution(@memoize function(value) { 
+  value++
+});
+
+export function memoize(...) {
+  // at minimum, the arguments of this function should contain:
+  // - reference to the decorated function expression
+  // - arguments passed into the memoize function (if any)
+
+  // wrap the decorated function expression memoization implementation and return it
+}
+
+```
+
+# Zones
+
+```js
+//a primitive for context propagation across multiple logically-connected async operations
+
+class Zone {
+  constructor({ name, parent });
+
+  name;
+  get parent();
+
+  fork({ name });
+  run(callback);
+  wrap(callback);
+
+  static get current();
+}
+
+const loadZone = Zone.current.fork({ name: "loading zone" });
+window.onload = loadZone.wrap(e => { ... });
+
+```
+
+# Explicit syntactic opt-in for Tail Calls
+
+```js
+let factorial = (n, acc = 1) =>
+  n == 1 ? acc
+         : continue factorial(n - 1, acc * n);
+
+```
+
+# Object enumerables
+
+```js
+Object.enumerableKeys(obj); // Ordered list of keys.
+```
+
+```js
+Object.enumerableValues(obj); // Ordered list of Values.
+```
+
+```js
+Object.enumerableEntries(obj); //Ordered list of key value pairs.
+```
+
+# Unicode property escapes in RE
+
+```js
+const regexGreekSymbol = /\p{Script=Greek}/u;
+regexGreekSymbol.test('π');
+```
