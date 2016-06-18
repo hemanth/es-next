@@ -1,5 +1,9 @@
+> `stage-0` and `stage-4` features.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+__TOC:__
 
 - [Relationshiops](#relationshiops)
 - [String.prototype.at](#stringprototypeat)
@@ -18,7 +22,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-> `stage-0` and `stage-4` features.
 
 
 __STAGE 0:__
