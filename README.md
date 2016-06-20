@@ -5,7 +5,9 @@ __TOC:__
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Relationshiops](#relationshiops)
+
+- [Defensible Classes](#defensible-classes)
+- [Relationships](#relationships)
 - [String.prototype.at](#stringprototypeat)
 - [Reflect.isCallable](#reflectiscallable)
 - [Reflect.isConstructor](#reflectisconstructor)
@@ -19,6 +21,17 @@ __TOC:__
 - [Explicit syntactic opt-in for Tail Calls](#explicit-syntactic-opt-in-for-tail-calls)
 - [Object enumerables](#object-enumerables)
 - [Unicode property escapes in RE](#unicode-property-escapes-in-re)
+- [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
+- [export v from "mod"; statements](#export-v-from-mod-statements)
+- [Class and Property Decorators](#class-and-property-decorators)
+- [Observable](#observable)
+- [String.prototype.{trimLeft,trimRight}](#stringprototypetrimlefttrimright)
+- [Class Property Declarations](#class-property-declarations)
+- [String.prototype.matchAll](#stringprototypematchall)
+- [Private Fields](#private-fields)
+- [WeakRefs](#weakrefs)
+- [Frozen Realms](#frozen-realms)
+- [Cancelable Promises](#cancelable-promises)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
