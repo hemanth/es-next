@@ -1,9 +1,9 @@
 > `stage-0` and `stage-4` features.
 
+__TOC:__
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-__TOC:__
 
 - [Relationshiops](#relationshiops)
 - [String.prototype.at](#stringprototypeat)
@@ -23,11 +23,10 @@ __TOC:__
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
+__Stage 0:__
 
-__STAGE 0:__
-
-
-#Defensible Classes
+# Defensible Classes 
+> :zero:
 
 ```js
 // const class
@@ -43,7 +42,8 @@ const class Point {
 }
 ```
 
-# Relationshiops
+# Relationships
+> :zero:
 
 ```js
 x @ r // The object x is in the r relationship with what value?
@@ -51,24 +51,28 @@ x @ r = y; // Store that x is in the r relationship with value y.
 ```
 
 # String.prototype.at
+> :zero:
 
 ```js
 'abc\uD834\uDF06def'.at(3), '\uD834\uDF06'
 ```
 
 # Reflect.isCallable
+> :zero:
 
 ```js
 Reflect.isCallable(argument);
 ```
 
 # Reflect.isConstructor
+> :zero:
 
 ```js
 Reflect.isConstructor(argument)
 ```
 
 # Additional metaproperties
+> :zero:
 
 ```js
 function.callee; // function object that is currently being evaluated by the running execution context.
@@ -83,6 +87,7 @@ function.arguments; // array containing the actual arguments passed to the funct
 ```
 
 # Function Bind Syntax
+> :zero:
 
 ```js
 // :: which performs this binding and method extraction.
@@ -92,6 +97,7 @@ Promise.resolve(123).then(::console.log);
 ```
 
 # Do Expressions
+> :zero:
 
 ```js
 // do all the flexible things you can do with statements while still producing a useful result and plugging that back into an expression context.
@@ -101,6 +107,7 @@ x = do { let t = f(); t * t + 1 };
 ```
 
 # 64-Bit Integer Operations
+> :zero:
 
 ```js
 // return the high 32 bit part of the 64 bit addition of (hi0, lo0) and (hi1, lo1)
@@ -118,6 +125,7 @@ Math.umulh(a, b);
 ```
 
 # Method Parameter Decorators
+> :zero:
 
 //decorators that operate on method and constructor parameters.
 
@@ -139,6 +147,7 @@ export function lastRefreshTime(...) {
 ```
 
 # Function Expression Decorators
+> :zero:
 
 ```js
 scheduleForFrequentReexecution(@memoize function(value) { 
@@ -156,6 +165,7 @@ export function memoize(...) {
 ```
 
 # Zones
+> :zero:
 
 ```js
 //a primitive for context propagation across multiple logically-connected async operations
@@ -179,6 +189,7 @@ window.onload = loadZone.wrap(e => { ... });
 ```
 
 # Explicit syntactic opt-in for Tail Calls
+> :zero:
 
 ```js
 let factorial = (n, acc = 1) =>
@@ -188,6 +199,7 @@ let factorial = (n, acc = 1) =>
 ```
 
 # Object enumerables
+> :zero:
 
 ```js
 Object.enumerableKeys(obj); // Ordered list of keys.
@@ -202,8 +214,198 @@ Object.enumerableEntries(obj); //Ordered list of key value pairs.
 ```
 
 # Unicode property escapes in RE
+> :zero:
 
 ```js
 const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
+```
+
+__Stage 1:__
+
+# export * as ns from "mod"; statements
+> :one:
+
+```js
+export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named export.
+```
+
+# export v from "mod"; statements
+> :one:
+
+```js
+export v, {x, y as w} from "mod";
+
+export v, * as ns from "mod";
+```
+
+# Class and Property Decorators
+> :one:
+
+```js
+class C {
+  @writable(false)
+  method() { }
+}
+
+function writable(value) {
+  return function (target, key, descriptor) {
+     descriptor.writable = value;
+     return descriptor;
+  }
+}
+```
+
+# Observable
+> :one:
+
+```js
+// Observable as a Constructor:
+function listen(element, eventName) {
+    return new Observable(observer => {
+        // Create an event handler which sends data to the sink
+        let handler = event => observer.next(event);
+
+        // Attach the event handler
+        element.addEventListener(eventName, handler, true);
+
+        // Return a function which will cancel the event stream
+        return () => {
+            // Detach the event handler from the element
+            element.removeEventListener(eventName, handler, true);
+        };
+    });
+}
+
+// Observable.of creates an Observable of the values provided as arguments
+Observable.of("R", "G", "B").subscribe({
+    next(color) {
+        console.log(color);
+    }
+});
+
+// Observable.from converts its argument to an Observable.
+Observable.from(["R", "G", "B"]).subscribe({
+    next(color) {
+        console.log(color);
+    }
+});
+```
+
+# String.prototype.{trimLeft,trimRight}
+> :one:
+
+```js
+String.prototype.timeLeft("     Meow"); // "Meow"
+
+String.prototype.timeRight("Meow    "); // "Meow"
+```
+
+# Class Property Declarations
+> :one:
+
+```js
+
+// Class instance field
+class MyClass {
+  myProp = 42;
+
+  constructor() {
+    console.log(this.myProp); // Prints '42'
+  }
+}
+
+
+// Static property
+class MyClass {
+  static myStaticProp = 42;
+
+  constructor() {
+    console.log(MyClass.myStaticProp); // Prints '42'
+  }
+}
+```
+
+# String.prototype.matchAll
+> :one:
+
+```js
+var str = 'Hello world!!!';
+var regexp = /(\w+)\W*/g;
+console.log(str.matchAll(regexp));
+
+/*
+[
+  {
+    0: "Hello ",
+    1: "Hello"
+    index: 0,
+    input: "Hello world!!!"
+  },
+  {
+    0: "world!!!",
+    1: "world"
+    index: 6,
+    input: "Hello world!!!"
+  }
+]
+*/
+
+```
+
+# Private Fields
+> :one:
+
+```js
+class Point {
+    #x = 0;
+    #y = 0;
+
+    constructor() {
+        this.#x; // 0
+        this.#y; // 0
+    }
+}
+```
+
+# WeakRefs
+> :one: 
+
+```js
+// Make a new weak reference.
+// The target is a strong pointer to the object that will be pointed
+// at weakly by the result.
+// The executor is an optional argument that will be invoked after the
+// target becomes unreachable.
+// The holdings is an optional argument that will be provided to the
+// executor when it is invoked for target.
+makeWeakRef(target, executor, holdings);
+```
+
+# Frozen Realms
+> :one:
+
+```js
+class Realm {
+  // From the prior Realm API proposal
+  const global -> object                // access this realm's global object
+  eval(stringable) -> any               // do an indirect eval in this realm
+
+  // We expect the rest of earlier proposal to be re-proposed eventually in
+  // some form, but do not rely here on any of the remainder.
+
+  // New with this proposal
+  static immutableRoot() -> Realm       // transitively immutable realm
+  spawn(endowments) -> Realm            // lightweight child realm
+}
+```
+
+# Cancelable Promises
+> :one:
+
+```js
+new Promise((resolve, reject, cancel) => { ... })
+Promise.cancel(cancelation)
+promise.then(onFulfilled, onRejected, onCanceled)
+promise.cancelCatch(cancelation => { ... })
 ```
