@@ -309,9 +309,9 @@ Observable.from(["R", "G", "B"]).subscribe({
 > :one:
 
 ```js
-String.prototype.timeLeft("     Meow"); // "Meow"
+String.prototype.trimLeft("     Meow"); // "Meow"
 
-String.prototype.timeRight("Meow    "); // "Meow"
+String.prototype.trimRight("Meow    "); // "Meow"
 ```
 
 # Class Property Declarations
