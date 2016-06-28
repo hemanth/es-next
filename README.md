@@ -77,7 +77,8 @@ x @ r = y; // Store that x is in the r relationship with value y.
 > :zero:
 
 ```js
-'abc\uD834\uDF06def'.at(3), '\uD834\uDF06'
+'abc𝌆def'.at(3)
+// → '𝌆'
 ```
 
 # Reflect.isCallable
