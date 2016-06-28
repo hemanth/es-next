@@ -32,6 +32,16 @@ __TOC:__
 - [WeakRefs](#weakrefs)
 - [Frozen Realms](#frozen-realms)
 - [Cancelable Promises](#cancelable-promises)
+- [Template Literal Revision](#template-literal-revision)
+- [System.global](#systemglobal)
+- [Shared memory and atomics](#shared-memory-and-atomics)
+- [Rest and Spread properties](#rest-and-spread-properties)
+- [function.sent Meta Property](#functionsent-meta-property)
+- [Asynchronous Iterators](#asynchronous-iterators)
+- [Function.prototype.toString revision](#functionprototypetostring-revision)
+- [Trailing commas in function parameter lists and calls](#trailing-commas-in-function-parameter-lists-and-calls)
+- [Async Functions](#async-functions)
+- [SIMD APIs](#simd-apis)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -421,4 +431,163 @@ new Promise((resolve, reject, cancel) => { ... })
 Promise.cancel(cancelation)
 promise.then(onFulfilled, onRejected, onCanceled)
 promise.cancelCatch(cancelation => { ... })
+```
+
+__Stage 2:__
+
+# Template Literal Revision
+> :two: 
+
+```js
+// The proposal is about fixing those Illegal token errors, avoid restrictions on escape sequences. 
+let document = latex`
+\newcommand{\fun}{\textbf{Fun!}}  // works just fine
+\newcommand{\unicode}{\textbf{Unicode!}} // Illegal token!
+\newcommand{\xerxes}{\textbf{King!}} // Illegal token!
+
+Breve over the h goes \u{h}ere // Illegal token!
+```
+
+# System.global
+> :two:
+
+```js
+// System.global to rule them all.
+
+var getGlobal = function () {
+    // the only reliable means to get the global object is
+    // `Function('return this')()`
+    // However, this causes CSP violations in Chrome apps.
+    if (typeof self !== 'undefined') { return self; }
+    if (typeof window !== 'undefined') { return window; }
+    if (typeof global !== 'undefined') { return global; }
+    throw new Error('unable to locate global object');
+};
+
+```
+
+# Shared memory and atomics
+> :two: 
+
+```js
+var sab = new SharedArrayBuffer(1024);  // 1KiB shared memory
+
+w.postMessage(sab, [sab])
+
+// In the worker:
+
+var sab;
+onmessage = function (ev) {
+   sab = ev.data;  // 1KiB shared memory, the same memory as in the parent
+}
+```
+
+# Rest and Spread properties
+> :two:
+
+```js
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }; // Rest.
+
+
+let n = { x, y, ...z }; // Sprea.
+
+```
+
+# function.sent Meta Property
+> :two:
+
+```js
+// Avoid ingnoring the first `next` call.
+function *adder(total=0) {
+   let increment=1;
+   do {
+       switch (request = function.sent){
+          case undefined: break;
+          case "done": return total;
+          default: increment = Number(request);
+       }
+       yield total += increment;
+   } while (true)
+}
+
+let tally = adder();
+tally.next(0.1); // argument no longer ignored
+tally.next(0.1);
+tally.next(0.1);
+let last=tally.next("done");
+console.log(last.value);  //0.3
+```
+
+# Asynchronous Iterators
+> :two:
+
+```js
+asyncIterator.next().then(result => console.log(result.value));
+
+
+for await (let line of readLines(filePath)) {
+    print(line);
+}
+
+async function *readLines(path) {
+
+    let file = await fileOpen(path);
+
+    try {
+
+        while (!file.EOF)
+            yield file.readLine();
+
+    } finally {
+
+        await file.close();
+    }
+}
+```
+
+# Function.prototype.toString revision
+> :three:
+
+```js
+// String's parse must contains the same
+// function body and parameter list as the original.
+
+O.gOPD({ get a(){} }, "a").get // "function a(){}"
+
+O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
+
+```
+
+# Trailing commas in function parameter lists and calls
+> :three:
+
+```js
+function foo(
+        param1,
+        param2,
+      ) {}
+```
+
+# Async Functions
+> :three:
+
+```js
+async function chainAnimationsAsync(elem, animations) {
+  let ret = null;
+  try {
+    for(const anim of animations) {
+      ret = await anim(elem);
+    }
+  } catch(e) { /* ignore and keep going */ }
+  return ret;
+}
+```
+
+# SIMD APIs
+> :three:
+
+```js
+/*a meta-variable ranging over all SIMD types:
+  Float32x4, Int32x4, Int16x8 Int8x16, Uint32x4, 
+  Uint16x8, Uint8x16, Bool32x4, Bool16x8 and Bool8x16. */
 ```
