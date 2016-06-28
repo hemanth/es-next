@@ -6,49 +6,53 @@ __TOC:__
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Defensible Classes](#defensible-classes)
-- [Relationships](#relationships)
-- [String.prototype.at](#stringprototypeat)
-- [Reflect.isCallable](#reflectiscallable)
-- [Reflect.isConstructor](#reflectisconstructor)
-- [Additional metaproperties](#additional-metaproperties)
-- [Function Bind Syntax](#function-bind-syntax)
-- [Do Expressions](#do-expressions)
-- [64-Bit Integer Operations](#64-bit-integer-operations)
-- [Method Parameter Decorators](#method-parameter-decorators)
-- [Function Expression Decorators](#function-expression-decorators)
-- [Zones](#zones)
-- [Explicit syntactic opt-in for Tail Calls](#explicit-syntactic-opt-in-for-tail-calls)
-- [Object enumerables](#object-enumerables)
-- [Unicode property escapes in RE](#unicode-property-escapes-in-re)
-- [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
-- [export v from "mod"; statements](#export-v-from-mod-statements)
-- [Class and Property Decorators](#class-and-property-decorators)
-- [Observable](#observable)
-- [String.prototype.{trimLeft,trimRight}](#stringprototypetrimlefttrimright)
-- [Class Property Declarations](#class-property-declarations)
-- [String.prototype.matchAll](#stringprototypematchall)
-- [Private Fields](#private-fields)
-- [WeakRefs](#weakrefs)
-- [Frozen Realms](#frozen-realms)
-- [Cancelable Promises](#cancelable-promises)
-- [Template Literal Revision](#template-literal-revision)
-- [System.global](#systemglobal)
-- [Shared memory and atomics](#shared-memory-and-atomics)
-- [Rest and Spread properties](#rest-and-spread-properties)
-- [function.sent Meta Property](#functionsent-meta-property)
-- [Asynchronous Iterators](#asynchronous-iterators)
-- [Function.prototype.toString revision](#functionprototypetostring-revision)
-- [Trailing commas in function parameter lists and calls](#trailing-commas-in-function-parameter-lists-and-calls)
-- [Async Functions](#async-functions)
-- [SIMD APIs](#simd-apis)
+- [Stage 0:](#stage-0)
+  - [Defensible Classes](#defensible-classes)
+  - [Relationships](#relationships)
+  - [String.prototype.at](#stringprototypeat)
+  - [Reflect.isCallable](#reflectiscallable)
+  - [Reflect.isConstructor](#reflectisconstructor)
+  - [Additional metaproperties](#additional-metaproperties)
+  - [Function Bind Syntax](#function-bind-syntax)
+  - [Do Expressions](#do-expressions)
+  - [64-Bit Integer Operations](#64-bit-integer-operations)
+  - [Method Parameter Decorators](#method-parameter-decorators)
+  - [Function Expression Decorators](#function-expression-decorators)
+  - [Zones](#zones)
+  - [Explicit syntactic opt-in for Tail Calls](#explicit-syntactic-opt-in-for-tail-calls)
+  - [Object enumerables](#object-enumerables)
+  - [Unicode property escapes in RE](#unicode-property-escapes-in-re)
+- [Stage 1:](#stage-1)
+  - [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
+  - [export v from "mod"; statements](#export-v-from-mod-statements)
+  - [Class and Property Decorators](#class-and-property-decorators)
+  - [Observable](#observable)
+  - [String.prototype.{trimLeft,trimRight}](#stringprototypetrimlefttrimright)
+  - [Class Property Declarations](#class-property-declarations)
+  - [String.prototype.matchAll](#stringprototypematchall)
+  - [Private Fields](#private-fields)
+  - [WeakRefs](#weakrefs)
+  - [Frozen Realms](#frozen-realms)
+  - [Cancelable Promises](#cancelable-promises)
+- [Stage 2:](#stage-2)
+  - [Template Literal Revision](#template-literal-revision)
+  - [System.global](#systemglobal)
+  - [Shared memory and atomics](#shared-memory-and-atomics)
+  - [Rest and Spread properties](#rest-and-spread-properties)
+  - [function.sent Meta Property](#functionsent-meta-property)
+  - [Asynchronous Iterators](#asynchronous-iterators)
+- [Stage 3:](#stage-3)
+  - [Function.prototype.toString revision](#functionprototypetostring-revision)
+  - [Trailing commas in function parameter lists and calls](#trailing-commas-in-function-parameter-lists-and-calls)
+  - [Async Functions](#async-functions)
+  - [SIMD APIs](#simd-apis)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-__Stage 0:__
+# Stage 0:
 
-# Defensible Classes 
+## Defensible Classes 
 > :zero:
 
 ```js
@@ -65,7 +69,7 @@ const class Point {
 }
 ```
 
-# Relationships
+## Relationships
 > :zero:
 
 ```js
@@ -73,7 +77,7 @@ x @ r // The object x is in the r relationship with what value?
 x @ r = y; // Store that x is in the r relationship with value y.
 ```
 
-# String.prototype.at
+## String.prototype.at
 > :zero:
 
 ```js
@@ -81,21 +85,21 @@ x @ r = y; // Store that x is in the r relationship with value y.
 // → '𝌆'
 ```
 
-# Reflect.isCallable
+## Reflect.isCallable
 > :zero:
 
 ```js
 Reflect.isCallable(argument);
 ```
 
-# Reflect.isConstructor
+## Reflect.isConstructor
 > :zero:
 
 ```js
 Reflect.isConstructor(argument)
 ```
 
-# Additional metaproperties
+## Additional metaproperties
 > :zero:
 
 ```js
@@ -110,7 +114,7 @@ function.count; // number of arguments pass to the function.
 function.arguments; // array containing the actual arguments passed to the function.
 ```
 
-# Function Bind Syntax
+## Function Bind Syntax
 > :zero:
 
 ```js
@@ -120,7 +124,7 @@ Promise.resolve(123).then(::console.log);
 
 ```
 
-# Do Expressions
+## Do Expressions
 > :zero:
 
 ```js
@@ -130,7 +134,7 @@ x = do { let t = f(); t * t + 1 };
 
 ```
 
-# 64-Bit Integer Operations
+## 64-Bit Integer Operations
 > :zero:
 
 ```js
@@ -148,7 +152,7 @@ Math.umulh(a, b);
 
 ```
 
-# Method Parameter Decorators
+## Method Parameter Decorators
 > :zero:
 
 //decorators that operate on method and constructor parameters.
@@ -170,7 +174,7 @@ export function lastRefreshTime(...) {
 }
 ```
 
-# Function Expression Decorators
+## Function Expression Decorators
 > :zero:
 
 ```js
@@ -188,7 +192,7 @@ export function memoize(...) {
 
 ```
 
-# Zones
+## Zones
 > :zero:
 
 ```js
@@ -212,7 +216,7 @@ window.onload = loadZone.wrap(e => { ... });
 
 ```
 
-# Explicit syntactic opt-in for Tail Calls
+## Explicit syntactic opt-in for Tail Calls
 > :zero:
 
 ```js
@@ -222,7 +226,7 @@ let factorial = (n, acc = 1) =>
 
 ```
 
-# Object enumerables
+## Object enumerables
 > :zero:
 
 ```js
@@ -237,7 +241,7 @@ Object.enumerableValues(obj); // Ordered list of Values.
 Object.enumerableEntries(obj); //Ordered list of key value pairs.
 ```
 
-# Unicode property escapes in RE
+## Unicode property escapes in RE
 > :zero:
 
 ```js
@@ -245,16 +249,16 @@ const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
 ```
 
-__Stage 1:__
+# Stage 1:
 
-# export * as ns from "mod"; statements
+## export * as ns from "mod"; statements
 > :one:
 
 ```js
 export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named export.
 ```
 
-# export v from "mod"; statements
+## export v from "mod"; statements
 > :one:
 
 ```js
@@ -263,7 +267,7 @@ export v, {x, y as w} from "mod";
 export v, * as ns from "mod";
 ```
 
-# Class and Property Decorators
+## Class and Property Decorators
 > :one:
 
 ```js
@@ -280,7 +284,7 @@ function writable(value) {
 }
 ```
 
-# Observable
+## Observable
 > :one:
 
 ```js
@@ -316,7 +320,7 @@ Observable.from(["R", "G", "B"]).subscribe({
 });
 ```
 
-# String.prototype.{trimLeft,trimRight}
+## String.prototype.{trimLeft,trimRight}
 > :one:
 
 ```js
@@ -325,7 +329,7 @@ String.prototype.trimLeft("     Meow"); // "Meow"
 String.prototype.trimRight("Meow    "); // "Meow"
 ```
 
-# Class Property Declarations
+## Class Property Declarations
 > :one:
 
 ```js
@@ -350,7 +354,7 @@ class MyClass {
 }
 ```
 
-# String.prototype.matchAll
+## String.prototype.matchAll
 > :one:
 
 ```js
@@ -377,7 +381,7 @@ console.log(str.matchAll(regexp));
 
 ```
 
-# Private Fields
+## Private Fields
 > :one:
 
 ```js
@@ -392,7 +396,7 @@ class Point {
 }
 ```
 
-# WeakRefs
+## WeakRefs
 > :one: 
 
 ```js
@@ -406,7 +410,7 @@ class Point {
 makeWeakRef(target, executor, holdings);
 ```
 
-# Frozen Realms
+## Frozen Realms
 > :one:
 
 ```js
@@ -424,7 +428,7 @@ class Realm {
 }
 ```
 
-# Cancelable Promises
+## Cancelable Promises
 > :one:
 
 ```js
@@ -434,9 +438,9 @@ promise.then(onFulfilled, onRejected, onCanceled)
 promise.cancelCatch(cancelation => { ... })
 ```
 
-__Stage 2:__
+# Stage 2:
 
-# Template Literal Revision
+## Template Literal Revision
 > :two: 
 
 ```js
@@ -449,7 +453,7 @@ let document = latex`
 Breve over the h goes \u{h}ere // Illegal token!
 ```
 
-# System.global
+## System.global
 > :two:
 
 ```js
@@ -467,7 +471,7 @@ var getGlobal = function () {
 
 ```
 
-# Shared memory and atomics
+## Shared memory and atomics
 > :two: 
 
 ```js
@@ -483,7 +487,7 @@ onmessage = function (ev) {
 }
 ```
 
-# Rest and Spread properties
+## Rest and Spread properties
 > :two:
 
 ```js
@@ -494,7 +498,7 @@ let n = { x, y, ...z }; // Sprea.
 
 ```
 
-# function.sent Meta Property
+## function.sent Meta Property
 > :two:
 
 ```js
@@ -519,7 +523,7 @@ let last=tally.next("done");
 console.log(last.value);  //0.3
 ```
 
-# Asynchronous Iterators
+## Asynchronous Iterators
 > :two:
 
 ```js
@@ -546,7 +550,9 @@ async function *readLines(path) {
 }
 ```
 
-# Function.prototype.toString revision
+# Stage 3:
+
+## Function.prototype.toString revision
 > :three:
 
 ```js
@@ -559,7 +565,7 @@ O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
 
 ```
 
-# Trailing commas in function parameter lists and calls
+## Trailing commas in function parameter lists and calls
 > :three:
 
 ```js
@@ -569,7 +575,7 @@ function foo(
       ) {}
 ```
 
-# Async Functions
+## Async Functions
 > :three:
 
 ```js
@@ -584,7 +590,7 @@ async function chainAnimationsAsync(elem, animations) {
 }
 ```
 
-# SIMD APIs
+## SIMD APIs
 > :three:
 
 ```js
