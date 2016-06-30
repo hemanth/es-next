@@ -494,7 +494,7 @@ onmessage = function (ev) {
 let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }; // Rest.
 
 
-let n = { x, y, ...z }; // Sprea.
+let n = { x, y, ...z }; // Spread.
 
 ```
 
