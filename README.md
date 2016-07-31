@@ -47,6 +47,7 @@ __TOC:__
   - [Async Functions](#async-functions)
   - [SIMD APIs](#simd-apis)
 
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
@@ -632,18 +633,32 @@ O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
 
 ```
 
-## Trailing commas in function parameter lists and calls
+## SIMD APIs
 > :three:
 
 ```js
-function foo(
-        param1,
-        param2,
-      ) {}
+/*a meta-variable ranging over all SIMD types:
+  Float32x4, Int32x4, Int16x8 Int8x16, Uint32x4, 
+  Uint16x8, Uint8x16, Bool32x4, Bool16x8 and Bool8x16. */
 ```
 
-## Async Functions
+## Lifting Template Literal Restriction
 > :three:
+
+```
+function tag(strs) {
+  strs[0] === undefined
+  strs.raw[0] === "\\unicode and \\u{55}";
+}
+tag`\unicode and \u{55}`
+
+let bad = `bad escape sequence: \unicode`; // throws early error
+```
+
+# Stage 4:
+
+## Async Functions
+> :four:
 
 ```js
 async function chainAnimationsAsync(elem, animations) {
@@ -657,11 +672,12 @@ async function chainAnimationsAsync(elem, animations) {
 }
 ```
 
-## SIMD APIs
-> :three:
+## Trailing commas in function parameter lists and calls
+> :four:
 
 ```js
-/*a meta-variable ranging over all SIMD types:
-  Float32x4, Int32x4, Int16x8 Int8x16, Uint32x4, 
-  Uint16x8, Uint8x16, Bool32x4, Bool16x8 and Bool8x16. */
+function foo(
+        param1,
+        param2,
+      ) {}
 ```
