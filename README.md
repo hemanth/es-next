@@ -438,6 +438,24 @@ promise.then(onFulfilled, onRejected, onCanceled)
 promise.cancelCatch(cancelation => { ... })
 ```
 
+## ArrayBuffer.transfer
+> :one:
+
+```js
+//returns a new ArrayBuffer whose contents are taken from oldBuffer
+var buf1 = new ArrayBuffer(40);
+new Int32Array(buf1)[0] = 42;
+ 
+var buf2 = ArrayBuffer.transfer(buf1, 80);
+assert(buf1.byteLength == 0);
+assert(buf2.byteLength == 80);
+assert(new Int32Array(buf2)[0] == 42);
+ 
+var buf3 = ArrayBuffer.transfer(buf2, 0);
+assert(buf2.byteLength == 0);
+assert(buf3.byteLength == 0);
+```
+
 # Stage 2:
 
 ## Template Literal Revision
