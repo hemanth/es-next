@@ -591,6 +591,32 @@ Promise.resolve(2).finally(() => {})
 Promise.reject(3).finally(() => {})
 ```
 
+## Public Class Fields
+> :two:
+
+```js
+// Class Instance Fields
+class ClassWithoutInits {
+  myProp;
+}
+
+class ClassWithInits {
+  myProp = 42;
+}
+```
+
+```js
+// Class Static Properties
+
+class MyClass {
+  static myStaticProp = 42;
+
+  constructor() {
+    console.log(MyClass.myStaticProp); // Prints '42'
+  }
+}
+```
+
 # Stage 3:
 
 ## Function.prototype.toString revision
