@@ -312,15 +312,6 @@ Observable.from(["R", "G", "B"]).subscribe({
 });
 ```
 
-## String.prototype.{trimLeft,trimRight}
-> :one:
-
-```js
-String.prototype.trimLeft("     Meow"); // "Meow"
-
-String.prototype.trimRight("Meow    "); // "Meow"
-```
-
 ## String.prototype.matchAll
 > :one:
 
@@ -615,6 +606,15 @@ class MyClass {
     console.log(MyClass.myStaticProp); // Prints '42'
   }
 }
+```
+
+## String.prototype.{trimLeft,trimRight}
+> :two:
+
+```js
+String.prototype.trimLeft("     Meow"); // "Meow"
+
+String.prototype.trimRight("Meow    "); // "Meow"
 ```
 
 # Stage 3:
