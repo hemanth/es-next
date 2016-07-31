@@ -242,6 +242,15 @@ Object.enumerableValues(obj); // Ordered list of Values.
 Object.enumerableEntries(obj); //Ordered list of key value pairs.
 ```
 
+## Nested import declarations
+> :zero:
+
+```js
+import { check as checkClient } from "./client.js";
+import { check as checkServer } from "./server.js";
+import { check as checkBoth } from "./both.js";
+```
+
 # Stage 1:
 
 ## export * as ns from "mod"; statements
