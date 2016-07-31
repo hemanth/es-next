@@ -25,7 +25,6 @@ __TOC:__
 - [Stage 1:](#stage-1)
   - [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
   - [export v from "mod"; statements](#export-v-from-mod-statements)
-  - [Class and Property Decorators](#class-and-property-decorators)
   - [Observable](#observable)
   - [String.prototype.matchAll](#stringprototypematchall)
   - [Private Fields](#private-fields)
@@ -46,6 +45,7 @@ __TOC:__
   - [Promise.prototype.finally](#promiseprototypefinally)
   - [Public Class Fields](#public-class-fields)
   - [String.prototype.{trimLeft,trimRight}](#stringprototypetrimlefttrimright)
+  - [Class and Property Decorators](#class-and-property-decorators)
 - [Stage 3:](#stage-3)
   - [Function.prototype.toString revision](#functionprototypetostring-revision)
   - [SIMD APIs](#simd-apis)
@@ -273,23 +273,6 @@ export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named e
 export v, {x, y as w} from "mod";
 
 export v, * as ns from "mod";
-```
-
-## Class and Property Decorators
-> Stage-1
-
-```js
-class C {
-  @writable(false)
-  method() { }
-}
-
-function writable(value) {
-  return function (target, key, descriptor) {
-     descriptor.writable = value;
-     return descriptor;
-  }
-}
 ```
 
 ## Observable
@@ -631,6 +614,23 @@ class MyClass {
 String.prototype.trimLeft("     Meow"); // "Meow"
 
 String.prototype.trimRight("Meow    "); // "Meow"
+```
+
+## Class and Property Decorators
+> Stage-2
+
+```js
+class C {
+  @writable(false)
+  method() { }
+}
+
+function writable(value) {
+  return function (target, key, descriptor) {
+     descriptor.writable = value;
+     return descriptor;
+  }
+}
 ```
 
 # Stage 3:
