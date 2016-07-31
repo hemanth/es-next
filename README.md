@@ -162,9 +162,9 @@ Math.umulh(a, b);
 ## Method Parameter Decorators
 > Stage-0
 
+```js
 //decorators that operate on method and constructor parameters.
 
-```js
 class MyComponent {
   refresh(@lastRefreshTime timeStamp) { … }
 }
