@@ -241,14 +241,6 @@ Object.enumerableValues(obj); // Ordered list of Values.
 Object.enumerableEntries(obj); //Ordered list of key value pairs.
 ```
 
-## Unicode property escapes in RE
-> :zero:
-
-```js
-const regexGreekSymbol = /\p{Script=Greek}/u;
-regexGreekSymbol.test('π');
-```
-
 # Stage 1:
 
 ## export * as ns from "mod"; statements
@@ -454,6 +446,14 @@ assert(new Int32Array(buf2)[0] == 42);
 var buf3 = ArrayBuffer.transfer(buf2, 0);
 assert(buf2.byteLength == 0);
 assert(buf3.byteLength == 0);
+```
+
+## Unicode property escapes in RE
+> :one:
+
+```js
+const regexGreekSymbol = /\p{Script=Greek}/u;
+regexGreekSymbol.test('π');
 ```
 
 # Stage 2:
