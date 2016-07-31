@@ -54,7 +54,7 @@ __TOC:__
 # Stage 0:
 
 ## Defensible Classes 
-> :zero:
+> Stage-0
 
 ```js
 // const class
@@ -71,7 +71,7 @@ const class Point {
 ```
 
 ## Relationships
-> :zero:
+> Stage-0
 
 ```js
 x @ r // The object x is in the r relationship with what value?
@@ -79,7 +79,7 @@ x @ r = y; // Store that x is in the r relationship with value y.
 ```
 
 ## String.prototype.at
-> :zero:
+> Stage-0
 
 ```js
 'abc𝌆def'.at(3)
@@ -87,21 +87,21 @@ x @ r = y; // Store that x is in the r relationship with value y.
 ```
 
 ## Reflect.isCallable
-> :zero:
+> Stage-0
 
 ```js
 Reflect.isCallable(argument);
 ```
 
 ## Reflect.isConstructor
-> :zero:
+> Stage-0
 
 ```js
 Reflect.isConstructor(argument)
 ```
 
 ## Additional metaproperties
-> :zero:
+> Stage-0
 
 ```js
 function.callee; // function object that is currently being evaluated by the running execution context.
@@ -116,7 +116,7 @@ function.arguments; // array containing the actual arguments passed to the funct
 ```
 
 ## Function Bind Syntax
-> :zero:
+> Stage-0
 
 ```js
 // :: which performs this binding and method extraction.
@@ -126,7 +126,7 @@ Promise.resolve(123).then(::console.log);
 ```
 
 ## Do Expressions
-> :zero:
+> Stage-0
 
 ```js
 // do all the flexible things you can do with statements while still producing a useful result and plugging that back into an expression context.
@@ -136,7 +136,7 @@ x = do { let t = f(); t * t + 1 };
 ```
 
 ## 64-Bit Integer Operations
-> :zero:
+> Stage-0
 
 ```js
 // return the high 32 bit part of the 64 bit addition of (hi0, lo0) and (hi1, lo1)
@@ -154,7 +154,7 @@ Math.umulh(a, b);
 ```
 
 ## Method Parameter Decorators
-> :zero:
+> Stage-0
 
 //decorators that operate on method and constructor parameters.
 
@@ -176,7 +176,7 @@ export function lastRefreshTime(...) {
 ```
 
 ## Function Expression Decorators
-> :zero:
+> Stage-0
 
 ```js
 scheduleForFrequentReexecution(@memoize function(value) { 
@@ -194,7 +194,7 @@ export function memoize(...) {
 ```
 
 ## Zones
-> :zero:
+> Stage-0
 
 ```js
 //a primitive for context propagation across multiple logically-connected async operations
@@ -218,7 +218,7 @@ window.onload = loadZone.wrap(e => { ... });
 ```
 
 ## Explicit syntactic opt-in for Tail Calls
-> :zero:
+> Stage-0
 
 ```js
 let factorial = (n, acc = 1) =>
@@ -228,7 +228,7 @@ let factorial = (n, acc = 1) =>
 ```
 
 ## Object enumerables
-> :zero:
+> Stage-0
 
 ```js
 Object.enumerableKeys(obj); // Ordered list of keys.
@@ -243,7 +243,7 @@ Object.enumerableEntries(obj); //Ordered list of key value pairs.
 ```
 
 ## Nested import declarations
-> :zero:
+> Stage-0
 
 ```js
 import { check as checkClient } from "./client.js";
