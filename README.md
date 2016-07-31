@@ -245,14 +245,14 @@ Object.enumerableEntries(obj); //Ordered list of key value pairs.
 # Stage 1:
 
 ## export * as ns from "mod"; statements
-> :one:
+> Stage-1
 
 ```js
 export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named export.
 ```
 
 ## export v from "mod"; statements
-> :one:
+> Stage-1
 
 ```js
 export v, {x, y as w} from "mod";
@@ -261,7 +261,7 @@ export v, * as ns from "mod";
 ```
 
 ## Class and Property Decorators
-> :one:
+> Stage-1
 
 ```js
 class C {
@@ -278,7 +278,7 @@ function writable(value) {
 ```
 
 ## Observable
-> :one:
+> Stage-1
 
 ```js
 // Observable as a Constructor:
@@ -314,7 +314,7 @@ Observable.from(["R", "G", "B"]).subscribe({
 ```
 
 ## String.prototype.matchAll
-> :one:
+> Stage-1
 
 ```js
 var str = 'Hello world!!!';
@@ -341,7 +341,7 @@ console.log(str.matchAll(regexp));
 ```
 
 ## Private Fields
-> :one:
+> Stage-1
 
 ```js
 class Point {
@@ -356,7 +356,7 @@ class Point {
 ```
 
 ## WeakRefs
-> :one: 
+> Stage-1 
 
 ```js
 // Make a new weak reference.
@@ -370,7 +370,7 @@ makeWeakRef(target, executor, holdings);
 ```
 
 ## Frozen Realms
-> :one:
+> Stage-1
 
 ```js
 class Realm {
@@ -388,7 +388,7 @@ class Realm {
 ```
 
 ## Cancelable Promises
-> :one:
+> Stage-1
 
 ```js
 new Promise((resolve, reject, cancel) => { ... })
@@ -398,7 +398,7 @@ promise.cancelCatch(cancelation => { ... })
 ```
 
 ## ArrayBuffer.transfer
-> :one:
+> Stage-1
 
 ```js
 //returns a new ArrayBuffer whose contents are taken from oldBuffer
@@ -416,7 +416,7 @@ assert(buf3.byteLength == 0);
 ```
 
 ## Unicode property escapes in RE
-> :one:
+> Stage-1
 
 ```js
 const regexGreekSymbol = /\p{Script=Greek}/u;
@@ -424,7 +424,7 @@ regexGreekSymbol.test('π');
 ```
 
 ## Math Extensions
-> :one:
+> Stage-1
 
 ```js
 // Possible ones:
@@ -440,7 +440,7 @@ Math.toRadians(double, arndeg)
 # Stage 2:
 
 ## Template Literal Revision
-> :two: 
+> Stage-2 
 
 ```js
 // The proposal is about fixing those Illegal token errors, avoid restrictions on escape sequences. 
@@ -453,7 +453,7 @@ Breve over the h goes \u{h}ere // Illegal token!
 ```
 
 ## System.global
-> :two:
+> Stage-2
 
 ```js
 // System.global to rule them all.
@@ -471,7 +471,7 @@ var getGlobal = function () {
 ```
 
 ## Shared memory and atomics
-> :two: 
+> Stage-2 
 
 ```js
 var sab = new SharedArrayBuffer(1024);  // 1KiB shared memory
@@ -487,7 +487,7 @@ onmessage = function (ev) {
 ```
 
 ## Rest and Spread properties
-> :two:
+> Stage-2
 
 ```js
 let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }; // Rest.
@@ -498,7 +498,7 @@ let n = { x, y, ...z }; // Spread.
 ```
 
 ## function.sent Meta Property
-> :two:
+> Stage-2
 
 ```js
 // Avoid ingnoring the first `next` call.
@@ -523,7 +523,7 @@ console.log(last.value);  //0.3
 ```
 
 ## Asynchronous Iterators
-> :two:
+> Stage-2
 
 ```js
 asyncIterator.next().then(result => console.log(result.value));
@@ -550,7 +550,7 @@ async function *readLines(path) {
 ```
 
 ## Class Property Declarations
-> :two:
+> Stage-2
 
 ```js
 
@@ -575,7 +575,7 @@ class MyClass {
 ```
 
 ## Promise.prototype.finally
-> :two:
+> Stage-2
 
 ```js
 Promise.resolve(2).finally(() => {})
@@ -584,7 +584,7 @@ Promise.reject(3).finally(() => {})
 ```
 
 ## Public Class Fields
-> :two:
+> Stage-2
 
 ```js
 // Class Instance Fields
@@ -610,7 +610,7 @@ class MyClass {
 ```
 
 ## String.prototype.{trimLeft,trimRight}
-> :two:
+> Stage-2
 
 ```js
 String.prototype.trimLeft("     Meow"); // "Meow"
@@ -621,7 +621,7 @@ String.prototype.trimRight("Meow    "); // "Meow"
 # Stage 3:
 
 ## Function.prototype.toString revision
-> :three:
+> Stage-3
 
 ```js
 // String's parse must contains the same
@@ -634,7 +634,7 @@ O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
 ```
 
 ## SIMD APIs
-> :three:
+> Stage-3
 
 ```js
 /*a meta-variable ranging over all SIMD types:
@@ -643,7 +643,7 @@ O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
 ```
 
 ## Lifting Template Literal Restriction
-> :three:
+> Stage-3
 
 ```
 function tag(strs) {
@@ -658,7 +658,7 @@ let bad = `bad escape sequence: \unicode`; // throws early error
 # Stage 4:
 
 ## Async Functions
-> :four:
+> Stage-4
 
 ```js
 async function chainAnimationsAsync(elem, animations) {
@@ -673,7 +673,7 @@ async function chainAnimationsAsync(elem, animations) {
 ```
 
 ## Trailing commas in function parameter lists and calls
-> :four:
+> Stage-4
 
 ```js
 function foo(
