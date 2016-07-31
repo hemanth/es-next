@@ -1,4 +1,4 @@
-> `stage-0` to `stage-4` features.
+> stage-0 to stage-4 ECMAscript proposals.
 
 __TOC:__
 
