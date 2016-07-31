@@ -321,31 +321,6 @@ String.prototype.trimLeft("     Meow"); // "Meow"
 String.prototype.trimRight("Meow    "); // "Meow"
 ```
 
-## Class Property Declarations
-> :one:
-
-```js
-
-// Class instance field
-class MyClass {
-  myProp = 42;
-
-  constructor() {
-    console.log(this.myProp); // Prints '42'
-  }
-}
-
-
-// Static property
-class MyClass {
-  static myStaticProp = 42;
-
-  constructor() {
-    console.log(MyClass.myStaticProp); // Prints '42'
-  }
-}
-```
-
 ## String.prototype.matchAll
 > :one:
 
@@ -581,6 +556,32 @@ async function *readLines(path) {
     }
 }
 ```
+
+## Class Property Declarations
+> :one:
+
+```js
+
+// Class instance field
+class MyClass {
+  myProp = 42;
+
+  constructor() {
+    console.log(this.myProp); // Prints '42'
+  }
+}
+
+
+// Static property
+class MyClass {
+  static myStaticProp = 42;
+
+  constructor() {
+    console.log(MyClass.myStaticProp); // Prints '42'
+  }
+}
+```
+
 
 # Stage 3:
 
