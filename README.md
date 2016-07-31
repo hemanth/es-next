@@ -456,6 +456,20 @@ const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
 ```
 
+## Math Extensions
+> :one:
+
+```js
+// Possible ones:
+Math.map
+Math.scale
+Math.remap
+Math.clamp
+Math.constrain
+Math.toDegress(dobule, angrad)
+Math.toRadians(double, arndeg)
+```
+
 # Stage 2:
 
 ## Template Literal Revision
