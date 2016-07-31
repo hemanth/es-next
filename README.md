@@ -558,7 +558,7 @@ async function *readLines(path) {
 ```
 
 ## Class Property Declarations
-> :one:
+> :two:
 
 ```js
 
@@ -582,6 +582,14 @@ class MyClass {
 }
 ```
 
+## Promise.prototype.finally
+> :two:
+
+```js
+Promise.resolve(2).finally(() => {})
+
+Promise.reject(3).finally(() => {})
+```
 
 # Stage 3:
 
