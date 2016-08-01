@@ -162,9 +162,9 @@ Math.umulh(a, b);
 ## Method Parameter Decorators
 > Stage-0
 
-```js
 //decorators that operate on method and constructor parameters.
 
+```js
 class MyComponent {
   refresh(@lastRefreshTime timeStamp) { … }
 }
@@ -252,9 +252,24 @@ Object.enumerableEntries(obj); //Ordered list of key value pairs.
 > Stage-0
 
 ```js
-import { check as checkClient } from "./client.js";
-import { check as checkServer } from "./server.js";
-import { check as checkBoth } from "./both.js";
+describe("fancy feature #5", () => {
+  import { strictEqual } from "assert";
+
+  it("should work on the client", () => {
+    import { check } from "./client.js";
+    strictEqual(check(), "client ok");
+  });
+
+  it("should work on the client", () => {
+    import { check } from "./server.js";
+    strictEqual(check(), "server ok");
+  });
+
+  it("should work on both client and server", () => {
+    import { check } from "./both.js";
+    strictEqual(check(), "both ok");
+  });
+});
 ```
 
 # Stage 1:
