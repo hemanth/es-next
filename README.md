@@ -446,8 +446,8 @@ Math.scale
 Math.remap
 Math.clamp
 Math.constrain
-Math.toDegress(dobule, angrad)
-Math.toRadians(double, arndeg)
+Math.toDegrees(double angrad)
+Math.toRadians(double angdeg)
 ```
 
 # Stage 2:
