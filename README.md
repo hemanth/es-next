@@ -675,7 +675,7 @@ O.gOPD({ set a(b){} }, "a").set // "function a(b){}"
 ## Lifting Template Literal Restriction
 > Stage-3
 
-```
+```js
 function tag(strs) {
   strs[0] === undefined
   strs.raw[0] === "\\unicode and \\u{55}";
