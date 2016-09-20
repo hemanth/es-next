@@ -648,6 +648,15 @@ function writable(value) {
 }
 ```
 
+## Async-iteration
+> Stage-2
+
+```js
+asyncIterator
+  .next()
+  .then(({ value, done }) => /* ... */);
+```
+
 # Stage 3:
 
 ## Function.prototype.toString revision
