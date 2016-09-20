@@ -46,6 +46,8 @@ __TOC:__
   - [Public Class Fields](#public-class-fields)
   - [String.prototype.{trimLeft,trimRight}](#stringprototypetrimlefttrimright)
   - [Class and Property Decorators](#class-and-property-decorators)
+  - [Async-iteration](#async-iteration)
+  - [function.sent metaproperty](#functionsent-metaproperty)
 - [Stage 3:](#stage-3)
   - [Function.prototype.toString revision](#functionprototypetostring-revision)
   - [SIMD APIs](#simd-apis)
@@ -655,6 +657,29 @@ function writable(value) {
 asyncIterator
   .next()
   .then(({ value, done }) => /* ... */);
+```
+
+## function.sent metaproperty
+> Stage-2
+
+```js
+function *adder(total=0) {
+   let increment=1;
+   do {
+       switch (request = function.sent){
+          case undefined: break;
+          case "done": return total;
+          default: increment = Number(request);
+       }
+       yield total += increment;
+   } while (true)
+}
+
+let tally = adder();
+tally.next(0.1); // argument no longer ignored
+tally.next(0.1);
+tally.next(0.1);
+let last=tally.next("done");
 ```
 
 # Stage 3:
