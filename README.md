@@ -429,14 +429,6 @@ assert(buf2.byteLength == 0);
 assert(buf3.byteLength == 0);
 ```
 
-## Unicode property escapes in RE
-> Stage-1
-
-```js
-const regexGreekSymbol = /\p{Script=Greek}/u;
-regexGreekSymbol.test('π');
-```
-
 ## Math Extensions
 > Stage-1
 
@@ -466,24 +458,6 @@ let document = latex`
 Breve over the h goes \u{h}ere // Illegal token!
 ```
 
-## System.global
-> Stage-2
-
-```js
-// System.global to rule them all.
-
-var getGlobal = function () {
-    // the only reliable means to get the global object is
-    // `Function('return this')()`
-    // However, this causes CSP violations in Chrome apps.
-    if (typeof self !== 'undefined') { return self; }
-    if (typeof window !== 'undefined') { return window; }
-    if (typeof global !== 'undefined') { return global; }
-    throw new Error('unable to locate global object');
-};
-
-```
-
 ## Shared memory and atomics
 > Stage-2 
 
@@ -498,17 +472,6 @@ var sab;
 onmessage = function (ev) {
    sab = ev.data;  // 1KiB shared memory, the same memory as in the parent
 }
-```
-
-## Rest and Spread properties
-> Stage-2
-
-```js
-let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }; // Rest.
-
-
-let n = { x, y, ...z }; // Spread.
-
 ```
 
 ## function.sent Meta Property
@@ -649,16 +612,53 @@ function writable(value) {
 }
 ```
 
+# Stage 3:
+
+## Unicode property escapes in RE
+> Stage-3
+
+```js
+const regexGreekSymbol = /\p{Script=Greek}/u;
+regexGreekSymbol.test('π');
+```
+
+## global
+> Stage-3
+
+```js
+// global to rule them all.
+
+var getGlobal = function () {
+    // the only reliable means to get the global object is
+    // `Function('return this')()`
+    // However, this causes CSP violations in Chrome apps.
+    if (typeof self !== 'undefined') { return self; }
+    if (typeof window !== 'undefined') { return window; }
+    if (typeof global !== 'undefined') { return global; }
+    throw new Error('unable to locate global object');
+};
+
+```
+
+## Rest and Spread properties
+> Stage-3
+
+```js
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }; // Rest.
+
+
+let n = { x, y, ...z }; // Spread.
+
+```
+
 ## Async-iteration
-> Stage-2
+> Stage-3
 
 ```js
 asyncIterator
   .next()
   .then(({ value, done }) => /* ... */);
 ```
-
-# Stage 3:
 
 ## Function.prototype.toString revision
 > Stage-3
