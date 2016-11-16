@@ -33,6 +33,7 @@ __TOC:__
   - [Cancelable Promises](#cancelable-promises)
   - [ArrayBuffer.transfer](#arraybuffertransfer)
   - [Math Extensions](#math-extensions)
+  - [`of` and `from` on collection constructors](#of-and-from-on-collection-constructors)
 - [Stage 2:](#stage-2)
   - [Template Literal Revision](#template-literal-revision)
   - [Shared memory and atomics](#shared-memory-and-atomics)
@@ -441,6 +442,23 @@ Math.clamp
 Math.constrain
 Math.toDegrees(double angrad)
 Math.toRadians(double angdeg)
+```
+
+## `of` and `from` on collection constructors
+> Stage-1
+
+```js
+Map.of( ...items );
+Map.from( ...items );
+
+Set.of( ...items );
+Set.from( ...items );
+
+WeakMap.of( ...items );
+WeakMap.from( ...items );
+
+WeakSet.of( ...items );
+WeakSet.from( ...items );
 ```
 
 # Stage 2:
