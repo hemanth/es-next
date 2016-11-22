@@ -468,6 +468,14 @@ WeakSet.from( ...items );
 let cat = *() => { yield 'meow'; }
 ```
 
+## RegExp Named Capture Groups
+> Stage-1
+
+```js
+let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
+console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
+```
+
 # Stage 2:
 
 ## Template Literal Revision
