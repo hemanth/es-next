@@ -476,6 +476,26 @@ let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
 console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
 ```
 
+## Intl.Segmenter: Unicode segmentation
+> Stage-1
+
+```js
+// Create a segmenter in your locale
+let segmenter = Intl.Segmenter("fr", {type: "word"});
+
+// Get an iterator over a string
+let iterator = segmenter.segment("Ceci n'est pas une pipe");
+
+// Iterate over it!
+for (let {segment, breakType} of iterator) {
+  console.log(`segment: ${segment} breakType: ${breakType}`);
+  break;
+}
+
+// logs the following to the console:
+// index: Ceci breakType: letter
+```
+
 # Stage 2:
 
 ## Template Literal Revision
