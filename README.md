@@ -461,6 +461,13 @@ WeakSet.of( ...items );
 WeakSet.from( ...items );
 ```
 
+## Generator arrow functions.
+> Stage-1
+
+```js
+let cat = *() => { yield 'meow'; }
+```
+
 # Stage 2:
 
 ## Template Literal Revision
