@@ -758,6 +758,13 @@ onmessage = function (ev) {
 typeof global; // object, helps in writing a portable code.
 ```
 
+## import()
+> stage 3
+
+```js
+import(`./language-packs/${navigator.language}.js`) // import(specifier)
+```
+
 # Stage 4:
 
 ## Async Functions
