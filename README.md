@@ -464,6 +464,31 @@ let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
 console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
 ```
 
+## Date.parse fallback semantics
+> Stage-1
+
+```js
+//  New grammar should be used as the "fallback" 
+//  when date strings do not conform to the 
+//  regular Date Time String Format.
+```
+
+## String#matchAll
+> Satge-1
+
+```js
+
+// String.prototype.matchAll(regexp);
+
+let str = 'A\na\nb\nC';
+let regex = /^[ac]/im;
+let expectedResults = [
+  { value: assign(['A'], { input: str, index: 0 }), done: false },
+  { value: assign(['a'], { input: str, index: 2 }), done: false },
+  { value: assign(['C'], { input: str, index: 6 }), done: false },
+  { value: null, done: true }
+];
+```
 # Stage 2:
 
 ## Template Literal Revision
