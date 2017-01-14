@@ -489,6 +489,37 @@ let expectedResults = [
   { value: null, done: true }
 ];
 ```
+
+## Generator arrow functions (=>*)	
+> Stage-1
+
+```js
+// current
+x => x * x;
+(...) => { statements }
+(...) => ( expr )
+
+// proposed generator arrows...
+
+// Irregular
+() =*>
+
+// Hostile to ! (async function)
+() => * { ...yield... }
+
+// Not good
+() => * (yield a, yield b)
+
+// Ok if 1 token
+x *=> x * x;
+
+// Bad (ASI)
+*() => ...
+
+// Hostile to !
+(x) =* {...}
+```
+
 # Stage 2:
 
 ## Template Literal Revision
