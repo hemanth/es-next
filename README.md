@@ -751,6 +751,13 @@ tag`\unicode and \u{55}`
 let bad = `bad escape sequence: \unicode`; // throws early error
 ```
 
+## global
+> stage 3
+
+```js
+typeof global; // object, helps in writing a portable code.
+```
+
 # Stage 4:
 
 ## Async Functions
