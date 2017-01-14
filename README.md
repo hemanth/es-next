@@ -358,21 +358,6 @@ console.log(str.matchAll(regexp));
 
 ```
 
-## Private Fields
-> Stage-1
-
-```js
-class Point {
-    #x = 0;
-    #y = 0;
-
-    constructor() {
-        this.#x; // 0
-        this.#y; // 0
-    }
-}
-```
-
 ## WeakRefs
 > Stage-1 
 
@@ -477,26 +462,6 @@ let cat = *() => { yield 'meow'; }
 ```js
 let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
 console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
-```
-
-## Intl.Segmenter: Unicode segmentation
-> Stage-1
-
-```js
-// Create a segmenter in your locale
-let segmenter = Intl.Segmenter("fr", {type: "word"});
-
-// Get an iterator over a string
-let iterator = segmenter.segment("Ceci n'est pas une pipe");
-
-// Iterate over it!
-for (let {segment, breakType} of iterator) {
-  console.log(`segment: ${segment} breakType: ${breakType}`);
-  break;
-}
-
-// logs the following to the console:
-// index: Ceci breakType: letter
 ```
 
 # Stage 2:
@@ -697,15 +662,50 @@ const str = '1947';
 // Negative assertions
 ```
 
-# Stage 3:
-
 ## Unicode property escapes in RE
-> Stage-3
+> Stage-2
 
 ```js
 const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
 ```
+
+## Private Fields
+> Stage-2
+
+```js
+class Point {
+    #x = 0;
+    #y = 0;
+
+    constructor() {
+        this.#x; // 0
+        this.#y; // 0
+    }
+}
+```
+
+## Intl.Segmenter: Unicode segmentation
+> Stage-2
+
+```js
+// Create a segmenter in your locale
+let segmenter = Intl.Segmenter("fr", {type: "word"});
+
+// Get an iterator over a string
+let iterator = segmenter.segment("Ceci n'est pas une pipe");
+
+// Iterate over it!
+for (let {segment, breakType} of iterator) {
+  console.log(`segment: ${segment} breakType: ${breakType}`);
+  break;
+}
+
+// logs the following to the console:
+// index: Ceci breakType: letter
+```
+
+# Stage 3:
 
 ## global
 > Stage-3
