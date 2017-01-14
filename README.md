@@ -536,6 +536,14 @@ re.flags
 // → true
 ```
 
+# Promise.try
+> Stage-1
+
+```js
+// Promise.try(function() fn) -> Promise
+```
+
+
 # Stage 2:
 
 ## Template Literal Revision
@@ -626,15 +634,6 @@ class MyClass {
     console.log(MyClass.myStaticProp); // Prints '42'
   }
 }
-```
-
-## Promise.prototype.finally
-> Stage-2
-
-```js
-Promise.resolve(2).finally(() => {})
-
-Promise.reject(3).finally(() => {})
 ```
 
 ## Public Class Fields
