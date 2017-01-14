@@ -520,6 +520,22 @@ x *=> x * x;
 (x) =* {...}
 ```
 
+# s (dotAll) flag for regular expressions
+> Stage-1
+
+```js
+const re = /foo.bar/s; // Or, `const re = new RegExp('foo.bar', 's');`.
+re.test('foo\nbar');
+// → true
+re.dotAll
+// → true
+re.flags
+// → 's'
+
+/foo.bar/s.test('foo\nbar');
+// → true
+```
+
 # Stage 2:
 
 ## Template Literal Revision
