@@ -626,15 +626,6 @@ class MyClass {
 }
 ```
 
-## String.prototype.{trimLeft,trimRight}
-> Stage-2
-
-```js
-String.prototype.trimLeft("     Meow"); // "Meow"
-
-String.prototype.trimRight("Meow    "); // "Meow"
-```
-
 ## Class and Property Decorators
 > Stage-2
 
@@ -659,6 +650,18 @@ function writable(value) {
 "    Hey JS!".trimStart(); // "Hey JS!"
 
 "    Hey JS!    ".trimEnd();// "    Hey JS!"
+
+// P.S: trimLeft/trimRight are aliases.
+```
+
+## Promise.prototype.finally
+> Stage-2
+
+```js
+somePromise()
+.then(() => {})
+.catch(() => {})
+.finally(() => {})
 ```
 
 # Stage 3:
