@@ -514,22 +514,6 @@ let document = latex`
 Breve over the h goes \u{h}ere // Illegal token!
 ```
 
-## Shared memory and atomics
-> Stage-2 
-
-```js
-var sab = new SharedArrayBuffer(1024);  // 1KiB shared memory
-
-w.postMessage(sab, [sab])
-
-// In the worker:
-
-var sab;
-onmessage = function (ev) {
-   sab = ev.data;  // 1KiB shared memory, the same memory as in the parent
-}
-```
-
 ## function.sent Meta Property
 > Stage-2
 
@@ -749,6 +733,22 @@ function tag(strs) {
 tag`\unicode and \u{55}`
 
 let bad = `bad escape sequence: \unicode`; // throws early error
+```
+
+## Shared memory and atomics
+> Stage-3
+
+```js
+var sab = new SharedArrayBuffer(1024);  // 1KiB shared memory
+
+w.postMessage(sab, [sab])
+
+// In the worker:
+
+var sab;
+onmessage = function (ev) {
+   sab = ev.data;  // 1KiB shared memory, the same memory as in the parent
+}
 ```
 
 ## global
