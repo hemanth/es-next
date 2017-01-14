@@ -652,6 +652,15 @@ function writable(value) {
 }
 ```
 
+## String.prototype.{trimStart,trimEnd}
+> Stage-2
+
+```js
+"    Hey JS!".trimStart(); // "Hey JS!"
+
+"    Hey JS!    ".trimEnd();// "    Hey JS!"
+```
+
 # Stage 3:
 
 ## Unicode property escapes in RE
