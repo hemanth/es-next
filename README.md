@@ -664,6 +664,20 @@ somePromise()
 .finally(() => {})
 ```
 
+## Legacy RegExp features
+> Stage-2
+
+```js
+RegExpAlloc( newTarget );
+
+RegExpBuiltInExec( R, S );
+
+RegExp.input;
+
+RegExp.prototype.compile( pattern, flags ); // modifications
+
+```
+
 # Stage 3:
 
 ## Unicode property escapes in RE
