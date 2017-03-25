@@ -722,34 +722,6 @@ RegExp.input;
 RegExp.prototype.compile( pattern, flags ); // modifications
 ```
 
-## RegExp Lookbehind Assertions
-> Stage-2
-
-```js
-const str = '1947';
-
-// (?<=(\d+)(\d+))$/ => (947) and (1)
-// Greediness proceeds from right to left
-
-
-// match[1] => 947 and match[2] => 1
-// Numbering capture groups
-
-// /(?<=\1(.))/
-// Referring to capture groups
-
-// /(?<!.)/
-// Negative assertions
-```
-
-## Unicode property escapes in RE
-> Stage-2
-
-```js
-const regexGreekSymbol = /\p{Script=Greek}/u;
-regexGreekSymbol.test('π');
-```
-
 ## Private Fields
 > Stage-2
 
@@ -888,6 +860,34 @@ typeof global; // object, helps in writing a portable code.
 
 ```js
 import(`./language-packs/${navigator.language}.js`) // import(specifier)
+```
+
+## RegExp Lookbehind Assertions
+> Stage-3
+
+```js
+const str = '1947';
+
+// (?<=(\d+)(\d+))$/ => (947) and (1)
+// Greediness proceeds from right to left
+
+
+// match[1] => 947 and match[2] => 1
+// Numbering capture groups
+
+// /(?<=\1(.))/
+// Referring to capture groups
+
+// /(?<!.)/
+// Negative assertions
+```
+
+## Unicode property escapes in RE
+> Stage-3
+
+```js
+const regexGreekSymbol = /\p{Script=Greek}/u;
+regexGreekSymbol.test('π');
 ```
 
 # Stage 4:
