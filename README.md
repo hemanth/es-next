@@ -889,30 +889,3 @@ const str = '1947';
 const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
 ```
-
-# Stage 4:
-
-## Async Functions
-> Stage-4
-
-```js
-async function chainAnimationsAsync(elem, animations) {
-  let ret = null;
-  try {
-    for(const anim of animations) {
-      ret = await anim(elem);
-    }
-  } catch(e) { /* ignore and keep going */ }
-  return ret;
-}
-```
-
-## Trailing commas in function parameter lists and calls
-> Stage-4
-
-```js
-function foo(
-        param1,
-        param2,
-      ) {}
-```
