@@ -465,14 +465,6 @@ WeakSet.from( ...items );
 let cat = *() => { yield 'meow'; }
 ```
 
-## RegExp Named Capture Groups
-> Stage-1
-
-```js
-let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
-console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
-```
-
 ## Date.parse fallback semantics
 > Stage-1
 
@@ -529,22 +521,6 @@ x *=> x * x;
 (x) =* {...}
 ```
 
-# s (dotAll) flag for regular expressions
-> Stage-1
-
-```js
-const re = /foo.bar/s; // Or, `const re = new RegExp('foo.bar', 's');`.
-re.test('foo\nbar');
-// → true
-re.dotAll
-// → true
-re.flags
-// → 's'
-
-/foo.bar/s.test('foo\nbar');
-// → true
-```
-
 # Promise.try
 > Stage-1
 
@@ -591,33 +567,6 @@ tally.next(0.1);
 tally.next(0.1);
 let last=tally.next("done");
 console.log(last.value);  //0.3
-```
-
-## Asynchronous Iterators
-> Stage-2
-
-```js
-asyncIterator.next().then(result => console.log(result.value));
-
-
-for await (let line of readLines(filePath)) {
-    print(line);
-}
-
-async function *readLines(path) {
-
-    let file = await fileOpen(path);
-
-    try {
-
-        while (!file.EOF)
-            yield file.readLine();
-
-    } finally {
-
-        await file.close();
-    }
-}
 ```
 
 ## Class Property Declarations
@@ -888,4 +837,55 @@ const str = '1947';
 ```js
 const regexGreekSymbol = /\p{Script=Greek}/u;
 regexGreekSymbol.test('π');
+```
+
+## RegExp Named Capture Groups
+> Stage-3
+
+```js
+let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
+console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
+```
+
+# s (dotAll) flag for regular expressions
+> Stage-3
+
+```js
+const re = /foo.bar/s; // Or, `const re = new RegExp('foo.bar', 's');`.
+re.test('foo\nbar');
+// → true
+re.dotAll
+// → true
+re.flags
+// → 's'
+
+/foo.bar/s.test('foo\nbar');
+// → true
+```
+
+## Asynchronous Iterators
+> Stage-3
+
+```js
+asyncIterator.next().then(result => console.log(result.value));
+
+
+for await (let line of readLines(filePath)) {
+    print(line);
+}
+
+async function *readLines(path) {
+
+    let file = await fileOpen(path);
+
+    try {
+
+        while (!file.EOF)
+            yield file.readLine();
+
+    } finally {
+
+        await file.close();
+    }
+}
 ```
