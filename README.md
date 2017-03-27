@@ -37,7 +37,7 @@ __TOC:__
   - [Date.parse fallback semantics](#dateparse-fallback-semantics)
   - [String#matchAll](#stringmatchall)
   - [Generator arrow functions (=>*)](#generator-arrow-functions-)
-- [Promise.try](#promisetry)
+  - [Promise.try](#promisetry)
 - [Stage 2:](#stage-2)
   - [Template Literal Revision](#template-literal-revision)
   - [function.sent Meta Property](#functionsent-meta-property)
@@ -62,7 +62,7 @@ __TOC:__
   - [RegExp Lookbehind Assertions](#regexp-lookbehind-assertions)
   - [Unicode property escapes in RE](#unicode-property-escapes-in-re)
   - [RegExp Named Capture Groups](#regexp-named-capture-groups)
-- [s (dotAll) flag for regular expressions](#s-dotall-flag-for-regular-expressions)
+  - [s (dotAll) flag for regular expressions](#s-dotall-flag-for-regular-expressions)
   - [Asynchronous Iterators](#asynchronous-iterators)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -518,7 +518,7 @@ x *=> x * x;
 (x) =* {...}
 ```
 
-# Promise.try
+## Promise.try
 > Stage-1
 
 ```js
@@ -844,7 +844,7 @@ let {one, two} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
 console.log(`one: ${one}, two: ${two}`);  // prints one: foo, two: bar
 ```
 
-# s (dotAll) flag for regular expressions
+## s (dotAll) flag for regular expressions
 > Stage-3
 
 ```js
