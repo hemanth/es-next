@@ -545,6 +545,23 @@ lo_res = Math.imul(a, b);
 hi_res = Math.imulh(a, b);
 ```
 
+# `of` and `from` on collection 
+> Stage-1
+
+```js
+CollectionCreate ( C, source [ , mapfn [ , thisArg ] ] )
+
+Map.of ( ...items )
+Set.of ( ...items )
+WeakMap.of ( ...items )
+WeakSet.of ( ...items )
+
+Map.from ( source [ , mapFn [ , thisArg ] ] )
+Set.from ( source [ , mapFn [ , thisArg ] ] )
+WeakMap.from ( source [ , mapFn [ , thisArg ] ] )
+WeakSet.from ( source [ , mapFn [ , thisArg ] ] )
+```
+
 # Stage 2:
 
 ## Template Literal Revision
