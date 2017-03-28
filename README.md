@@ -562,6 +562,25 @@ WeakMap.from ( source [ , mapFn [ , thisArg ] ] )
 WeakSet.from ( source [ , mapFn [ , thisArg ] ] )
 ```
 
+# Dynamic Module Reform
+> Stage-1
+
+```js
+// even.js
+module.exports = function even(n) {
+    ...
+    require('odd')(n - 1)
+    ...
+}
+
+// odd.js
+module.exports = function odd(n) {
+    ...
+    require('even')(n - 1)
+    ...
+}
+```
+
 # Stage 2:
 
 ## Template Literal Revision
