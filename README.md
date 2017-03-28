@@ -525,6 +525,25 @@ x *=> x * x;
 // Promise.try(function() fn) -> Promise
 ```
 
+##64-Bit Integer Operations
+> Stage-1
+
+```js
+// (hi_res, lo_res) = (hi0, lo0) + (hi1, lo1) (64 bit addition):
+
+lo_res = (lo0 + lo1) | 0;
+hi_res = Math.iaddh(lo0, hi0, lo1, hi1);
+
+// (hi_res, lo_res) = (hi0, lo0) - (hi1, lo1) (64 bit subtraction):
+
+lo_res = (lo0 - lo1) | 0;
+hi_res = Math.isubh(lo0, hi0, lo1, hi1);
+
+// (hi_res, lo_res) = a * b (signed 64 bit product of 32 bit integers):
+
+lo_res = Math.imul(a, b);
+hi_res = Math.imulh(a, b);
+```
 
 # Stage 2:
 
