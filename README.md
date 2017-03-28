@@ -581,6 +581,16 @@ module.exports = function odd(n) {
 }
 ```
 
+#Null Propagation Operator
+> Stage-1
+
+```js
+obj?.prop         // optional property access
+obj?.[expr]       // ditto
+func?.(...args)   // optional function or method call
+new C?.(...args)  // optional constructor invocation
+```
+
 # Stage 2:
 
 ## Template Literal Revision
