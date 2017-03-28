@@ -619,6 +619,23 @@ System.getStackString;
 Object.getOwnPropertyDescriptor(new Error(), 'stack');
 Object.getOwnPropertyDescriptor(Error.prototype, 'stack');
 ```
+
+# do expressions
+> Stage-1
+
+```js
+let x = do {
+  let tmp = f();
+  tmp * tmp + 1
+};
+
+let x = do {
+  if (foo()) { f() }
+  else if (bar()) { g() }
+  else { h() }
+};
+```
+
 # Stage 2:
 
 ## Template Literal Revision
