@@ -591,6 +591,22 @@ func?.(...args)   // optional function or method call
 new C?.(...args)  // optional constructor invocation
 ```
 
+#Math.signbit: IEEE-754 sign bit
+> Stage-1
+
+```js
+Math.signbit(x);
+
+/*
+Returns whether the sign bit of x is set.
+
+If n is NaN, the result is false.
+If n is -0, the result is true.
+If n is negative, the result is true.
+Otherwise, the result is false.
+*/
+```
+
 # Stage 2:
 
 ## Template Literal Revision
