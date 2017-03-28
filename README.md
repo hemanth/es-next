@@ -636,6 +636,41 @@ let x = do {
 };
 ```
 
+# Realms
+> Stage-1
+
+```js
+let realm = new Realm();
+
+let outerGlobal = window;
+let innerGlobal = realm.global;
+
+let f = realm.evalScript("(function() { return 17 })");
+
+f() === 17 // true
+
+Reflect.getPrototypeOf(f) === outerGlobal.Function.prototype // false
+Reflect.getPrototypeOf(f) === innerGlobal.Function.prototype // true
+
+
+class EmptyRealm extends Realm {
+  constructor(...args) { super(...args); }
+  init() { /* do nothing */ }
+}
+
+
+class FakeWindow extends Realm {
+  init() {
+    super.init(); // install the standard primordials
+    let global = this.global;
+
+    global.document = new FakeDocument(...);
+    global.alert = new Proxy(fakeAlert, { ... });
+    ...
+  }
+}
+```
+
 # Stage 2:
 
 ## Template Literal Revision
