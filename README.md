@@ -581,7 +581,7 @@ module.exports = function odd(n) {
 }
 ```
 
-#Null Propagation Operator
+# Null Propagation Operator
 > Stage-1
 
 ```js
@@ -591,7 +591,7 @@ func?.(...args)   // optional function or method call
 new C?.(...args)  // optional constructor invocation
 ```
 
-#Math.signbit: IEEE-754 sign bit
+# Math.signbit: IEEE-754 sign bit
 > Stage-1
 
 ```js
@@ -607,6 +607,18 @@ Otherwise, the result is false.
 */
 ```
 
+# Error Stacks
+> Stage-1
+
+```js
+Error.prototype.stack;
+System.getStack;
+System.getStackString;
+
+
+Object.getOwnPropertyDescriptor(new Error(), 'stack');
+Object.getOwnPropertyDescriptor(Error.prototype, 'stack');
+```
 # Stage 2:
 
 ## Template Literal Revision
