@@ -532,7 +532,7 @@ x *=> x * x;
 // Promise.try(function() fn) -> Promise
 ```
 
-##64-Bit Integer Operations
+## 64-Bit Integer Operations
 > Stage-1
 
 ```js
@@ -552,7 +552,7 @@ lo_res = Math.imul(a, b);
 hi_res = Math.imulh(a, b);
 ```
 
-# `of` and `from` on collection 
+## `of` and `from` on collection 
 > Stage-1
 
 ```js
@@ -569,7 +569,7 @@ WeakMap.from ( source [ , mapFn [ , thisArg ] ] )
 WeakSet.from ( source [ , mapFn [ , thisArg ] ] )
 ```
 
-# Dynamic Module Reform
+## Dynamic Module Reform
 > Stage-1
 
 ```js
@@ -588,7 +588,7 @@ module.exports = function odd(n) {
 }
 ```
 
-# Null Propagation Operator
+## Null Propagation Operator
 > Stage-1
 
 ```js
@@ -598,7 +598,7 @@ func?.(...args)   // optional function or method call
 new C?.(...args)  // optional constructor invocation
 ```
 
-# Math.signbit: IEEE-754 sign bit
+## Math.signbit: IEEE-754 sign bit
 > Stage-1
 
 ```js
@@ -614,7 +614,7 @@ Otherwise, the result is false.
 */
 ```
 
-# Error Stacks
+## Error Stacks
 > Stage-1
 
 ```js
@@ -627,7 +627,7 @@ Object.getOwnPropertyDescriptor(new Error(), 'stack');
 Object.getOwnPropertyDescriptor(Error.prototype, 'stack');
 ```
 
-# do expressions
+## do expressions
 > Stage-1
 
 ```js
@@ -643,7 +643,7 @@ let x = do {
 };
 ```
 
-# Realms
+## Realms
 > Stage-1
 
 ```js
