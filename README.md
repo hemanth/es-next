@@ -14,13 +14,9 @@ __TOC:__
   - [Reflect.isConstructor](#reflectisconstructor)
   - [Additional metaproperties](#additional-metaproperties)
   - [Function Bind Syntax](#function-bind-syntax)
-  - [Do Expressions](#do-expressions)
-  - [64-Bit Integer Operations](#64-bit-integer-operations)
   - [Method Parameter Decorators](#method-parameter-decorators)
   - [Function Expression Decorators](#function-expression-decorators)
   - [Zones](#zones)
-  - [Explicit syntactic opt-in for Tail Calls](#explicit-syntactic-opt-in-for-tail-calls)
-  - [Object enumerables](#object-enumerables)
   - [Nested import declarations](#nested-import-declarations)
 - [Stage 1:](#stage-1)
   - [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
@@ -149,17 +145,6 @@ function.arguments; // array containing the actual arguments passed to the funct
 Promise.resolve(123).then(::console.log);
 
 ```
-
-## Do Expressions
-> Stage-0
-
-```js
-// do all the flexible things you can do with statements while still producing a useful result and plugging that back into an expression context.
-
-x = do { let t = f(); t * t + 1 };
-
-```
-
 ## 64-Bit Integer Operations
 > Stage-0
 
@@ -241,17 +226,6 @@ const loadZone = Zone.current.fork({ name: "loading zone" });
 window.onload = loadZone.wrap(e => { ... });
 
 ```
-
-## Explicit syntactic opt-in for Tail Calls
-> Stage-0
-
-```js
-let factorial = (n, acc = 1) =>
-  n == 1 ? acc
-         : continue factorial(n - 1, acc * n);
-
-```
-
 ## Object enumerables
 > Stage-0
 
@@ -291,14 +265,76 @@ describe("fancy feature #5", () => {
 });
 ```
 
-# Stage 1:
-
-## export * as ns from "mod"; statements
-> Stage-1
+## is{Type} APIs
+> Stage-0
 
 ```js
-export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named export.
+Builtin.is(Date, vm.runInNewContext('Date'));     // false
+
+
+Builtin.typeOf([]);                             // 'Array'
+Builtin.typeOf(new ArrayBuffer());              // 'ArrayBuffer'
+Builtin.typeOf(async function foo() {}); 
+// So on.
+
 ```
+
+## Orthogonal Class Member Syntax
+> Stage-0
+
+```js
+//A kitchen sink example
+class Foo {
+  //instance members
+  own x=0, y=0;  // two data properties
+  own #secret;   // a private field
+                 // initial value undefined
+  own *[Symbol.iterator](){yield this.#secret}
+                 // a generator method
+  own #callback(){}  //a private instance method  
+  //class constructor members               
+  static #p=new Set(), q=Foo.#p;
+                // a private field and a property
+                // of the class constructor                     
+  static get p(){return Foo.#p} //accessor method     
+  //prototype methods                
+  setCallback(f){this.#callback=f}
+  constructor(s){
+     this.#secret = s;
+  }
+}
+```
+
+## Pattern Matching Syntax
+> Stage-0
+
+```js
+let getLength = vector => match (vector) {
+    { x, y, z }: Math.sqrt(x ** 2 + y ** 2 + z ** 2),
+    { x, y }:    Math.sqrt(x ** 2 + y ** 2),
+    [...]:       vector.length,
+    else: {
+        throw new Error("Unknown vector type");
+    }
+}
+```
+
+## Structured cloning and transfer
+> Stage-0
+
+```js
+StructuredClone(input, transferList, targetRealm)
+```
+
+## WHATWG URL
+> Stage-0
+
+```js
+const base = new URL('http://example.org/foo');
+const url = new URL('bar', base);
+```
+
+# Stage 1:
 
 ## export v from "mod"; statements
 > Stage-1
@@ -403,35 +439,6 @@ class Realm {
   spawn(endowments) -> Realm            // lightweight child realm
 }
 ```
-
-## Cancelable Promises
-> Stage-1
-
-```js
-new Promise((resolve, reject, cancel) => { ... })
-Promise.cancel(cancelation)
-promise.then(onFulfilled, onRejected, onCanceled)
-promise.cancelCatch(cancelation => { ... })
-```
-
-## ArrayBuffer.transfer
-> Stage-1
-
-```js
-//returns a new ArrayBuffer whose contents are taken from oldBuffer
-var buf1 = new ArrayBuffer(40);
-new Int32Array(buf1)[0] = 42;
- 
-var buf2 = ArrayBuffer.transfer(buf1, 80);
-assert(buf1.byteLength == 0);
-assert(buf2.byteLength == 80);
-assert(new Int32Array(buf2)[0] == 42);
- 
-var buf3 = ArrayBuffer.transfer(buf2, 0);
-assert(buf2.byteLength == 0);
-assert(buf3.byteLength == 0);
-```
-
 ## Math Extensions
 > Stage-1
 
@@ -479,23 +486,6 @@ let cat = *() => { yield 'meow'; }
 //  regular Date Time String Format.
 ```
 
-## String#matchAll
-> Satge-1
-
-```js
-
-// String.prototype.matchAll(regexp);
-
-let str = 'A\na\nb\nC';
-let regex = /^[ac]/im;
-let expectedResults = [
-  { value: assign(['A'], { input: str, index: 0 }), done: false },
-  { value: assign(['a'], { input: str, index: 2 }), done: false },
-  { value: assign(['C'], { input: str, index: 6 }), done: false },
-  { value: null, done: true }
-];
-```
-
 ## Generator arrow functions (=>*)	
 > Stage-1
 
@@ -533,26 +523,6 @@ x *=> x * x;
 // Promise.try(function() fn) -> Promise
 ```
 
-## 64-Bit Integer Operations
-> Stage-1
-
-```js
-// (hi_res, lo_res) = (hi0, lo0) + (hi1, lo1) (64 bit addition):
-
-lo_res = (lo0 + lo1) | 0;
-hi_res = Math.iaddh(lo0, hi0, lo1, hi1);
-
-// (hi_res, lo_res) = (hi0, lo0) - (hi1, lo1) (64 bit subtraction):
-
-lo_res = (lo0 - lo1) | 0;
-hi_res = Math.isubh(lo0, hi0, lo1, hi1);
-
-// (hi_res, lo_res) = a * b (signed 64 bit product of 32 bit integers):
-
-lo_res = Math.imul(a, b);
-hi_res = Math.imulh(a, b);
-```
-
 ## `of` and `from` on collection 
 > Stage-1
 
@@ -569,27 +539,7 @@ Set.from ( source [ , mapFn [ , thisArg ] ] )
 WeakMap.from ( source [ , mapFn [ , thisArg ] ] )
 WeakSet.from ( source [ , mapFn [ , thisArg ] ] )
 ```
-
-## Dynamic Module Reform
-> Stage-1
-
-```js
-// even.js
-module.exports = function even(n) {
-    ...
-    require('odd')(n - 1)
-    ...
-}
-
-// odd.js
-module.exports = function odd(n) {
-    ...
-    require('even')(n - 1)
-    ...
-}
-```
-
-## Null Propagation Operator
+## Optional Chaining
 > Stage-1
 
 ```js
@@ -854,6 +804,13 @@ for (let {segment, breakType} of iterator) {
 
 // logs the following to the console:
 // index: Ceci breakType: letter
+```
+
+## export * as ns from "mod"; statements
+> Stage-2
+
+```js
+export * as ns from "mod";  // Exporting the ModuleNameSpace object as a named export.
 ```
 
 # Stage 3:
