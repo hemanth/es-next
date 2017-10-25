@@ -47,12 +47,9 @@ __TOC:__
   - [Template Literal Revision](#template-literal-revision)
   - [function.sent Meta Property](#functionsent-meta-property)
   - [Class Property Declarations](#class-property-declarations)
-  - [Public Class Fields](#public-class-fields)
   - [Class and Property Decorators](#class-and-property-decorators)
   - [String.prototype.{trimStart,trimEnd}](#stringprototypetrimstarttrimend)
-  - [Promise.prototype.finally](#promiseprototypefinally)
   - [Legacy RegExp features](#legacy-regexp-features)
-  - [Private Fields](#private-fields)
   - [Intl.Segmenter: Unicode segmentation](#intlsegmenter-unicode-segmentation)
   - [export * as ns from "mod"; statements](#export--as-ns-from-mod-statements)
 - [Stage 3:](#stage-3)
@@ -70,6 +67,8 @@ __TOC:__
   - [RegExp Named Capture Groups](#regexp-named-capture-groups)
   - [s (dotAll) flag for regular expressions](#s-dotall-flag-for-regular-expressions)
   - [Asynchronous Iterators](#asynchronous-iterators)
+  - [Promise.prototype.finally](#promiseprototypefinally)
+  - [Class Fields](#class-fields)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -696,20 +695,6 @@ class MyClass {
 }
 ```
 
-## Public Class Fields
-> Stage-2
-
-```js
-// Class Instance Fields
-class ClassWithoutInits {
-  myProp;
-}
-
-class ClassWithInits {
-  myProp = 42;
-}
-```
-
 ```js
 // Class Static Properties
 
@@ -750,16 +735,6 @@ function writable(value) {
 // P.S: trimLeft/trimRight are aliases.
 ```
 
-## Promise.prototype.finally
-> Stage-2
-
-```js
-somePromise()
-.then(() => {})
-.catch(() => {})
-.finally(() => {})
-```
-
 ## Legacy RegExp features
 > Stage-2
 
@@ -771,21 +746,6 @@ RegExpBuiltInExec( R, S );
 RegExp.input;
 
 RegExp.prototype.compile( pattern, flags ); // modifications
-```
-
-## Private Fields
-> Stage-2
-
-```js
-class Point {
-    #x = 0;
-    #y = 0;
-
-    constructor() {
-        this.#x; // 0
-        this.#y; // 0
-    }
-}
 ```
 
 ## Intl.Segmenter: Unicode segmentation
@@ -995,6 +955,31 @@ async function *readLines(path) {
     } finally {
 
         await file.close();
+    }
+}
+```
+
+## Promise.prototype.finally
+> Stage-3
+
+```js
+somePromise()
+.then(() => {})
+.catch(() => {})
+.finally(() => {})
+```
+
+## Class Fields
+> Stage-3
+
+```js
+class Point {
+    #x = 0;  // private fields start with #
+    myProp = 42; // public field
+
+    constructor() {
+        this.#x; // 0
+        this.myProp; // 0
     }
 }
 ```
